@@ -1,0 +1,1861 @@
+{
+  "Dashboard": {
+    "DashboardId": "8fb2d9e5-0726-4e22-b798-8b79dea40324",
+    "Arn": "arn:aws:quicksight:eu-south-1:505630707203:dashboard/8fb2d9e5-0726-4e22-b798-8b79dea40324",
+    "Name": "AuthServerCallRedo",
+    "Version": {
+      "CreatedTime": "2025-09-29T16:04:32.350000+02:00",
+      "Errors": [],
+      "VersionNumber": 1,
+      "Status": "CREATION_SUCCESSFUL",
+      "SourceEntityArn": "arn:aws:quicksight:eu-south-1:505630707203:analysis/4a699c1c-92e4-48f1-ba54-32fa500e5f93",
+      "DataSetArns": [
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_auth_usage__data__last_calls",
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_00_auth_usage__data__calls"
+      ],
+      "Sheets": [
+        {
+          "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_afdaf587-458c-46b7-a06b-6f6c6382bda1",
+          "Name": "Current usage"
+        },
+        {
+          "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_bdebac84-247b-4509-b79b-4661882a7ab0",
+          "Name": "Errors by clients in last month"
+        },
+        {
+          "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_da056f4e-7491-40ce-9a33-70b53b0ca6dc",
+          "Name": "Number of calls last month"
+        }
+      ]
+    },
+    "CreatedTime": "2025-09-29T16:04:32.597000+02:00",
+    "LastPublishedTime": "2025-09-29T16:04:32.597000+02:00",
+    "LastUpdatedTime": "2025-09-29T16:04:32.350000+02:00",
+    "LinkEntities": [
+      "arn:aws:quicksight:eu-south-1:505630707203:analysis/4a699c1c-92e4-48f1-ba54-32fa500e5f93"
+    ]
+  },
+  "Definition": {
+    "DataSetIdentifierDeclarations": [
+      {
+        "Identifier": "mv_00_auth_usage__data__calls",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_00_auth_usage__data__calls"
+      },
+      {
+        "Identifier": "mv_01_auth_usage__data__last_calls",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_auth_usage__data__last_calls"
+      }
+    ],
+    "Sheets": [
+      {
+        "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_afdaf587-458c-46b7-a06b-6f6c6382bda1",
+        "Name": "Current usage",
+        "Visuals": [
+          {
+            "BarChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_f291609d-b304-42af-ab60-2f84dc0f6f04",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Top 10 caller for last 5, 15, 30 minutes</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.period_length_minutes.0.1753718282830",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_auth_usage__data__last_calls",
+                            "ColumnName": "period_length_minutes"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.calls_quantity.1.1753718292519",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_auth_usage__data__last_calls",
+                            "ColumnName": "calls_quantity"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "InteropDevMv01authusagedatalastcallsLTM.consumer_name.2.1758278819650",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_auth_usage__data__last_calls",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.period_length_minutes.0.1753718282830",
+                        "Direction": "ASC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimit": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimit": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Orientation": "VERTICAL",
+                "BarsArrangement": "STACKED",
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.period_length_minutes.0.1753718282830",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.calls_quantity.1.1753718292519",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "InteropDevMv01authusagedatalastcallsLTM.consumer_name.2.1758278819650",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": []
+            }
+          },
+          {
+            "GaugeChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_19b27d79-921e-40f9-87e0-bd3658b8d3d7",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Actual number of client with errors Vs number of active clients</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Last 30 minutes</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "647aa4fd-8435-4a1a-89a7-b6ff108eb44e.4.1758014172879",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "clients_with_errors"
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "f55601ac-2007-4af2-a2d0-5adff53196c3.4.1758017705859",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "active_clients"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "TooltipOptions": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "647aa4fd-8435-4a1a-89a7-b6ff108eb44e.4.1758014172879",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "f55601ac-2007-4af2-a2d0-5adff53196c3.4.1758017705859",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": []
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_2878989e-30c6-4866-b65d-fd9de3e95165",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Total Calls for last 5, 15, 30 minutes</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.period_length_minutes.0.1753718282830",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_auth_usage__data__last_calls",
+                            "ColumnName": "period_length_minutes"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.calls_quantity.1.1753718292519",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_auth_usage__data__last_calls",
+                            "ColumnName": "calls_quantity"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.calls_quantity.1.1753718292519",
+                        "Direction": "ASC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimit": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimit": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Orientation": "VERTICAL",
+                "BarsArrangement": "STACKED",
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.period_length_minutes.0.1753718282830",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "96a81c31-aaf1-43e4-8f1f-afe6b108901e.calls_quantity.1.1753718292519",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": []
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_d0f37ed7-3348-450f-abb3-0de2fc02a620",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  Errors 5xx by consumer\n  <br/>\n  (Yesterday and Today, every minute)\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753775522720",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "minute_slot"
+                          },
+                          "DateGranularity": "MINUTE",
+                          "HierarchyId": "4ac55b43-71e0-4877-9ead-6a5da54a5b65"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.quantity_5xx.1.1753775528400",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "quantity_5xx"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.consumer_name.2.1753775543951",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753775522720",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "PrimaryYAxisDisplayOptions": {
+                  "MissingDataConfigurations": [
+                    {
+                      "TreatmentOption": "SHOW_AS_ZERO"
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753775522720",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.quantity_5xx.1.1753775528400",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.consumer_name.2.1753775543951",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "4ac55b43-71e0-4877-9ead-6a5da54a5b65",
+                    "DrillDownFilters": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_1f9fd552-6ff4-46c0-82dd-137b11142211",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  Execution time in milliseconds (last 7 days)\n  <br/>\n  Average on one-minute intervals\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753779523450",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "minute_slot"
+                          },
+                          "DateGranularity": "MINUTE",
+                          "HierarchyId": "812bf0ac-fc01-4b59-bc1b-39b0cde45769"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "aa5bec4a-b7c0-4ddb-a56d-12e169ea4390.2.1753780105086",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "avg_execution_time"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "AVERAGE"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753779523450",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Time",
+                      "ApplyTo": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753779523450",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "minute_slot"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisDisplayOptions": {
+                  "MissingDataConfigurations": [
+                    {
+                      "TreatmentOption": "SHOW_AS_ZERO"
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Avg execution time (ms)",
+                      "ApplyTo": {
+                        "FieldId": "aa5bec4a-b7c0-4ddb-a56d-12e169ea4390.2.1753780105086",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "avg_execution_time"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753779523450",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "aa5bec4a-b7c0-4ddb-a56d-12e169ea4390.2.1753780105086",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "812bf0ac-fc01-4b59-bc1b-39b0cde45769",
+                    "DrillDownFilters": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_d0f37ed7-3348-450f-abb3-0de2fc02a620",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 8,
+                    "RowIndex": 0,
+                    "RowSpan": 7
+                  },
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_2878989e-30c6-4866-b65d-fd9de3e95165",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 8,
+                    "RowIndex": 0,
+                    "RowSpan": 7
+                  },
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_f291609d-b304-42af-ab60-2f84dc0f6f04",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 16,
+                    "ColumnSpan": 8,
+                    "RowIndex": 0,
+                    "RowSpan": 7
+                  },
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_19b27d79-921e-40f9-87e0-bd3658b8d3d7",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 24,
+                    "ColumnSpan": 9,
+                    "RowIndex": 0,
+                    "RowSpan": 7
+                  },
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_1f9fd552-6ff4-46c0-82dd-137b11142211",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 33,
+                    "RowIndex": 7,
+                    "RowSpan": 9
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1920px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_bdebac84-247b-4509-b79b-4661882a7ab0",
+        "Name": "Errors by clients in last month",
+        "Visuals": [
+          {
+            "LineChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_f79baf85-12cc-4ec3-a094-29732326f3c9",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>With clients has errors? One chart for each consumer. (Last 30 days, top 20 consumer by quantity of 4xx)</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>\n  Every chart refer to a specific consumer tenant.\n  <br/>\n  Every line show, every minute, the error ratio of a client with errors (4xx + 5xx)\n</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753779228859",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "minute_slot"
+                          },
+                          "DateGranularity": "MINUTE",
+                          "HierarchyId": "f7ed7e58-460d-4109-acfc-58f2adba8740"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "2b43e1ee-23b1-4c13-9d89-f97ebd3486d1.3.1758273692393",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "error_ratio"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "MAX"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.client_name.3.1753781097238",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "client_name"
+                          }
+                        }
+                      }
+                    ],
+                    "SmallMultiples": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.consumer_name.3.1753781026385",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753779228859",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "SmallMultiplesOptions": {
+                  "MaxVisibleRows": 4,
+                  "MaxVisibleColumns": 5,
+                  "PanelConfiguration": {
+                    "Title": {
+                      "Visibility": "VISIBLE",
+                      "FontConfiguration": {
+                        "FontSize": {},
+                        "FontDecoration": "NONE",
+                        "FontWeight": {
+                          "Name": "NORMAL"
+                        },
+                        "FontStyle": "NORMAL"
+                      }
+                    },
+                    "GutterVisibility": "HIDDEN",
+                    "BackgroundVisibility": "HIDDEN",
+                    "BackgroundColor": "#FF8700"
+                  },
+                  "XAxis": {},
+                  "YAxis": {}
+                },
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Time",
+                      "ApplyTo": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753779228859",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "minute_slot"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisDisplayOptions": {
+                  "MissingDataConfigurations": [
+                    {
+                      "TreatmentOption": "SHOW_AS_ZERO"
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Error ratio % (4xx + 5xx)",
+                      "ApplyTo": {
+                        "FieldId": "2b43e1ee-23b1-4c13-9d89-f97ebd3486d1.3.1758273692393",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "error_ratio"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "Legend": {
+                  "Visibility": "HIDDEN",
+                  "Position": "BOTTOM",
+                  "Width": "100px"
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753779228859",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.consumer_name.3.1753781026385",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.client_name.3.1753781097238",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "2b43e1ee-23b1-4c13-9d89-f97ebd3486d1.3.1758273692393",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "f7ed7e58-460d-4109-acfc-58f2adba8740",
+                    "DrillDownFilters": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_4840f09c-deb5-4574-9e42-c60aad3783dc",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Absolute number of clients with errors for each hour of last 30 days</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "InteropDevMv00authusagedatacallsLTM.minute_slot.0.1758018437172",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "minute_slot"
+                          },
+                          "DateGranularity": "HOUR",
+                          "HierarchyId": "3f9a3346-6791-477b-84e6-ba21f272dcfe"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "647aa4fd-8435-4a1a-89a7-b6ff108eb44e.1.1758018469395",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "clients_with_errors"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "InteropDevMv00authusagedatacallsLTM.minute_slot.0.1758018437172",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "InteropDevMv00authusagedatacallsLTM.minute_slot.0.1758018437172",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "647aa4fd-8435-4a1a-89a7-b6ff108eb44e.1.1758018469395",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "3f9a3346-6791-477b-84e6-ba21f272dcfe",
+                    "DrillDownFilters": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_4840f09c-deb5-4574-9e42-c60aad3783dc",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 0,
+                    "RowSpan": 8
+                  },
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_f79baf85-12cc-4ec3-a094-29732326f3c9",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 8,
+                    "RowSpan": 18
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_da056f4e-7491-40ce-9a33-70b53b0ca6dc",
+        "Name": "Number of calls last month",
+        "Visuals": [
+          {
+            "LineChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_2064e1a4-6367-4138-b304-a9e739189c28",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  Calls per hour by consumer (last 30 days)\n  <br/>\n  Top 10 consumer\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753718379671",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "minute_slot"
+                          },
+                          "DateGranularity": "HOUR",
+                          "HierarchyId": "8464be3c-cc45-460c-9659-69b593f910f2"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.calls_quantity.1.1753718392801",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "calls_quantity"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.consumer_name.2.1753718408760",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753718379671",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisDisplayOptions": {
+                  "DataOptions": {
+                    "DateAxisOptions": {
+                      "MissingDateVisibility": "HIDDEN"
+                    }
+                  }
+                },
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Time",
+                      "ApplyTo": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753718379671",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "minute_slot"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisDisplayOptions": {
+                  "MissingDataConfigurations": [
+                    {
+                      "TreatmentOption": "SHOW_AS_ZERO"
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Number of calls",
+                      "ApplyTo": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.calls_quantity.1.1753718392801",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "calls_quantity"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753718379671",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.calls_quantity.1.1753718392801",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.consumer_name.2.1753718408760",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "8464be3c-cc45-460c-9659-69b593f910f2",
+                    "DrillDownFilters": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_724570d1-8fe3-42ac-a25c-10dc76489cfb",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Total number of calls per hour (last 30 days)</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753718379671",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "minute_slot"
+                          },
+                          "DateGranularity": "HOUR",
+                          "HierarchyId": "645a0580-f66d-4807-8682-389bbad48465"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.calls_quantity.1.1753718392801",
+                          "Column": {
+                            "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                            "ColumnName": "calls_quantity"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753718379671",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisDisplayOptions": {
+                  "DataOptions": {
+                    "DateAxisOptions": {
+                      "MissingDateVisibility": "HIDDEN"
+                    }
+                  }
+                },
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Time",
+                      "ApplyTo": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753718379671",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "minute_slot"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisDisplayOptions": {
+                  "MissingDataConfigurations": [
+                    {
+                      "TreatmentOption": "SHOW_AS_ZERO"
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Number of calls",
+                      "ApplyTo": {
+                        "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.calls_quantity.1.1753718392801",
+                        "Column": {
+                          "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                          "ColumnName": "calls_quantity"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.minute_slot.0.1753718379671",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "7aaa3161-f0a6-409e-81cc-e45c2a702679.calls_quantity.1.1753718392801",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "645a0580-f66d-4807-8682-389bbad48465",
+                    "DrillDownFilters": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_724570d1-8fe3-42ac-a25c-10dc76489cfb",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 35,
+                    "RowIndex": 0,
+                    "RowSpan": 10
+                  },
+                  {
+                    "ElementId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_2064e1a4-6367-4138-b304-a9e739189c28",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 35,
+                    "RowIndex": 10,
+                    "RowSpan": 17
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      }
+    ],
+    "CalculatedFields": [
+      {
+        "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+        "Name": "active_clients",
+        "Expression": "distinct_count( {consumer_client_name} )"
+      },
+      {
+        "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+        "Name": "avg_execution_time",
+        "Expression": "{total_execution_time} / {calls_quantity} "
+      },
+      {
+        "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+        "Name": "clients_with_errors",
+        "Expression": "distinct_count( ifelse( {calls_quantity} - {quantity_2xx} > 0 , {consumer_client_name}, null) )"
+      },
+      {
+        "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+        "Name": "consumer_client_name",
+        "Expression": "concat( {consumer_name}, ' :: ', {client_name})"
+      },
+      {
+        "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+        "Name": "error_ratio",
+        "Expression": "round( 100 * ({quantity_4xx} + {quantity_5xx}) / {calls_quantity} , 2)"
+      }
+    ],
+    "ParameterDeclarations": [],
+    "FilterGroups": [
+      {
+        "FilterGroupId": "d49cbd83-7de4-4621-a891-cb39dc4d0446",
+        "Filters": [
+          {
+            "NumericRangeFilter": {
+              "FilterId": "0c011c77-9e52-4e35-93d8-6e1a81c96d62",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "quantity_5xx"
+              },
+              "IncludeMinimum": false,
+              "IncludeMaximum": false,
+              "RangeMinimum": {
+                "StaticValue": 0.0
+              },
+              "AggregationFunction": {
+                "NumericalAggregationFunction": {
+                  "SimpleNumericalAggregation": "SUM"
+                }
+              },
+              "NullOption": "ALL_VALUES"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_afdaf587-458c-46b7-a06b-6f6c6382bda1",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_d0f37ed7-3348-450f-abb3-0de2fc02a620"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "ca8047dd-b809-4b1f-9d1e-4832a931ea5f",
+        "Filters": [
+          {
+            "TimeRangeFilter": {
+              "FilterId": "64eedcc4-5c5e-4ae2-88e9-944ebe49132e",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "minute_slot"
+              },
+              "IncludeMinimum": true,
+              "RangeMinimumValue": {
+                "RollingDate": {
+                  "Expression": "addDateTime(-1, 'DD', truncDate('DD', now()))"
+                }
+              },
+              "NullOption": "NON_NULLS_ONLY",
+              "TimeGranularity": "DAY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_afdaf587-458c-46b7-a06b-6f6c6382bda1",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_d0f37ed7-3348-450f-abb3-0de2fc02a620"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "918b1b8b-a5d8-4f29-a046-2b6c602d6851",
+        "Filters": [
+          {
+            "TimeRangeFilter": {
+              "FilterId": "e29c6dff-9230-47e4-92ac-84869fdc70f6",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "minute_slot"
+              },
+              "IncludeMinimum": true,
+              "RangeMinimumValue": {
+                "RollingDate": {
+                  "Expression": "addDateTime(-30, 'DD', truncDate('DD', now()))"
+                }
+              },
+              "NullOption": "NON_NULLS_ONLY",
+              "TimeGranularity": "DAY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_bdebac84-247b-4509-b79b-4661882a7ab0",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_f79baf85-12cc-4ec3-a094-29732326f3c9"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "6e23b17c-b9de-435f-b7f5-1d6928724261",
+        "Filters": [
+          {
+            "NumericRangeFilter": {
+              "FilterId": "ad7c6b34-c89e-423d-ad8c-3d419997ea92",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "error_ratio"
+              },
+              "IncludeMinimum": false,
+              "IncludeMaximum": false,
+              "RangeMinimum": {
+                "StaticValue": 0.0
+              },
+              "AggregationFunction": {
+                "NumericalAggregationFunction": {
+                  "SimpleNumericalAggregation": "MAX"
+                }
+              },
+              "NullOption": "NON_NULLS_ONLY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_bdebac84-247b-4509-b79b-4661882a7ab0",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_f79baf85-12cc-4ec3-a094-29732326f3c9"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "de8ac7fe-fd8a-4f0e-9f58-6e5407603036",
+        "Filters": [
+          {
+            "RelativeDatesFilter": {
+              "FilterId": "6c6f66b5-dc23-4179-856e-a8de5f1b91b7",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "minute_slot"
+              },
+              "AnchorDateConfiguration": {
+                "AnchorOption": "NOW"
+              },
+              "MinimumGranularity": "DAY",
+              "TimeGranularity": "DAY",
+              "RelativeDateType": "LAST",
+              "RelativeDateValue": 7,
+              "NullOption": "NON_NULLS_ONLY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_afdaf587-458c-46b7-a06b-6f6c6382bda1",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_1f9fd552-6ff4-46c0-82dd-137b11142211"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "a81ce1e2-6553-4762-88ad-72339039f6cb",
+        "Filters": [
+          {
+            "RelativeDatesFilter": {
+              "FilterId": "8984361e-00e4-41eb-90bd-7ae9797322af",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "minute_slot"
+              },
+              "AnchorDateConfiguration": {
+                "AnchorOption": "NOW"
+              },
+              "MinimumGranularity": "DAY",
+              "TimeGranularity": "DAY",
+              "RelativeDateType": "LAST",
+              "RelativeDateValue": 30,
+              "NullOption": "NON_NULLS_ONLY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_bdebac84-247b-4509-b79b-4661882a7ab0",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_4840f09c-deb5-4574-9e42-c60aad3783dc"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "4cc8d5c9-fc2a-481f-9125-b156349a9578",
+        "Filters": [
+          {
+            "TopBottomFilter": {
+              "FilterId": "dc200f67-36fd-43c7-bd08-d2c1e19f8af9",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "consumer_name"
+              },
+              "Limit": 20,
+              "AggregationSortConfigurations": [
+                {
+                  "Column": {
+                    "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                    "ColumnName": "quantity_4xx"
+                  },
+                  "SortDirection": "DESC",
+                  "AggregationFunction": {
+                    "NumericalAggregationFunction": {
+                      "SimpleNumericalAggregation": "SUM"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_bdebac84-247b-4509-b79b-4661882a7ab0",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_f79baf85-12cc-4ec3-a094-29732326f3c9"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "84e8439c-a900-48c6-8a02-a94c5f71e7f5",
+        "Filters": [
+          {
+            "RelativeDatesFilter": {
+              "FilterId": "22484b61-0fe5-4ce5-9aa3-509a7f80a1eb",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "minute_slot"
+              },
+              "AnchorDateConfiguration": {
+                "AnchorOption": "NOW"
+              },
+              "MinimumGranularity": "DAY",
+              "TimeGranularity": "DAY",
+              "RelativeDateType": "LAST",
+              "RelativeDateValue": 30,
+              "NullOption": "NON_NULLS_ONLY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_da056f4e-7491-40ce-9a33-70b53b0ca6dc",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_724570d1-8fe3-42ac-a25c-10dc76489cfb"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "99932f87-5f25-46dc-9e26-8d13b8611841",
+        "Filters": [
+          {
+            "RelativeDatesFilter": {
+              "FilterId": "acb67ac3-4125-4628-b07a-92f20a0f723e",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "minute_slot"
+              },
+              "AnchorDateConfiguration": {
+                "AnchorOption": "NOW"
+              },
+              "MinimumGranularity": "MINUTE",
+              "TimeGranularity": "MINUTE",
+              "RelativeDateType": "LAST",
+              "RelativeDateValue": 30,
+              "NullOption": "NON_NULLS_ONLY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_afdaf587-458c-46b7-a06b-6f6c6382bda1",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_19b27d79-921e-40f9-87e0-bd3658b8d3d7"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "879cdc28-a1bc-4000-b1b6-519ea516d973",
+        "Filters": [
+          {
+            "RelativeDatesFilter": {
+              "FilterId": "03cfb682-bda3-4648-9f09-40a968973878",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "minute_slot"
+              },
+              "AnchorDateConfiguration": {
+                "AnchorOption": "NOW"
+              },
+              "MinimumGranularity": "DAY",
+              "TimeGranularity": "DAY",
+              "RelativeDateType": "LAST",
+              "RelativeDateValue": 30,
+              "NullOption": "NON_NULLS_ONLY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_da056f4e-7491-40ce-9a33-70b53b0ca6dc",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_2064e1a4-6367-4138-b304-a9e739189c28"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "d04b839c-870f-4939-8f97-d64bb8fe5f84",
+        "Filters": [
+          {
+            "TopBottomFilter": {
+              "FilterId": "1fc583ec-7ee7-4b34-9d1b-060017590212",
+              "Column": {
+                "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                "ColumnName": "consumer_name"
+              },
+              "Limit": 10,
+              "AggregationSortConfigurations": [
+                {
+                  "Column": {
+                    "DataSetIdentifier": "mv_00_auth_usage__data__calls",
+                    "ColumnName": "calls_quantity"
+                  },
+                  "SortDirection": "DESC",
+                  "AggregationFunction": {
+                    "NumericalAggregationFunction": {
+                      "SimpleNumericalAggregation": "SUM"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_da056f4e-7491-40ce-9a33-70b53b0ca6dc",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_2064e1a4-6367-4138-b304-a9e739189c28"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "ae8eb5c8-cb38-4951-b2c0-39897d0758ec",
+        "Filters": [
+          {
+            "TopBottomFilter": {
+              "FilterId": "260841b1-933a-42a2-b1af-e256012d97bf",
+              "Column": {
+                "DataSetIdentifier": "mv_01_auth_usage__data__last_calls",
+                "ColumnName": "consumer_name"
+              },
+              "Limit": 10,
+              "AggregationSortConfigurations": [
+                {
+                  "Column": {
+                    "DataSetIdentifier": "mv_01_auth_usage__data__last_calls",
+                    "ColumnName": "calls_quantity"
+                  },
+                  "SortDirection": "DESC",
+                  "AggregationFunction": {
+                    "NumericalAggregationFunction": {
+                      "SimpleNumericalAggregation": "SUM"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "8fb2d9e5-0726-4e22-b798-8b79dea40324_afdaf587-458c-46b7-a06b-6f6c6382bda1",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "8fb2d9e5-0726-4e22-b798-8b79dea40324_f291609d-b304-42af-ab60-2f84dc0f6f04"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      }
+    ],
+    "AnalysisDefaults": {
+      "DefaultNewSheetConfiguration": {
+        "InteractiveLayoutConfiguration": {
+          "Grid": {
+            "CanvasSizeOptions": {
+              "ScreenCanvasSizeOptions": {
+                "ResizeOption": "FIXED",
+                "OptimizedViewPortWidth": "1600px"
+              }
+            }
+          }
+        },
+        "SheetContentType": "INTERACTIVE"
+      }
+    },
+    "Options": {
+      "WeekStart": "SUNDAY"
+    }
+  },
+  "Permissions": [],
+  "Tags": []
+}

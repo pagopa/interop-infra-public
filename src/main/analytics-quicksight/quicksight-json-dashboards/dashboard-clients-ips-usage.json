@@ -1,0 +1,260 @@
+{
+  "Dashboard": {
+    "DashboardId": "interop-dev-tenants_clients_access_by_ip_DASH",
+    "Arn": "arn:aws:quicksight:eu-south-1:505630707203:dashboard/interop-dev-tenants_clients_access_by_ip_DASH",
+    "Name": "Clients IPs (interop-dev)",
+    "Version": {
+      "CreatedTime": "2025-09-22T12:46:15.366000+02:00",
+      "Errors": [],
+      "VersionNumber": 2,
+      "Status": "CREATION_SUCCESSFUL",
+      "DataSetArns": [
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-tenants_clients_access_by_ip"
+      ],
+      "Sheets": [
+        {
+          "SheetId": "99393ce6-8b07-4fab-80b5-08f6ede4fa70_b321cef9-3c08-4c05-a291-8cb911399dc7"
+        }
+      ]
+    },
+    "CreatedTime": "2025-09-19T16:51:52.501000+02:00",
+    "LastPublishedTime": "2025-09-22T12:46:23.986000+02:00",
+    "LastUpdatedTime": "2025-09-22T12:46:15.366000+02:00"
+  },
+  "Definition": {
+    "DataSetIdentifierDeclarations": [
+      {
+        "Identifier": "analysis__tenants_clients_access_by_ip_ds",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-tenants_clients_access_by_ip"
+      }
+    ],
+    "Sheets": [
+      {
+        "SheetId": "99393ce6-8b07-4fab-80b5-08f6ede4fa70_b321cef9-3c08-4c05-a291-8cb911399dc7",
+        "Title": "Clients by IP",
+        "ParameterControls": [
+          {
+            "TextField": {
+              "ParameterControlId": "79ad280a-1f3d-4a04-9e96-6b4b06535ce1",
+              "Title": "Filter By IP substring",
+              "SourceParameterName": "IpContains",
+              "DisplayOptions": {
+                "TitleOptions": {
+                  "Visibility": "VISIBLE",
+                  "FontConfiguration": {
+                    "FontSize": {
+                      "Relative": "MEDIUM"
+                    }
+                  }
+                },
+                "PlaceholderOptions": {
+                  "Visibility": "VISIBLE"
+                }
+              }
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "PivotTableVisual": {
+              "VisualId": "99393ce6-8b07-4fab-80b5-08f6ede4fa70_93f81506-0167-4a97-82e8-83943da0d281",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Oldest invocation and Latest invocation timestamps, by source IP and Client</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "PivotTableAggregatedFieldWells": {
+                    "Rows": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.ip.0.1750937094176",
+                          "Column": {
+                            "DataSetIdentifier": "analysis__tenants_clients_access_by_ip_ds",
+                            "ColumnName": "ip"
+                          }
+                        }
+                      }
+                    ],
+                    "Columns": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.tenant_name.1.1750937099695",
+                          "Column": {
+                            "DataSetIdentifier": "analysis__tenants_clients_access_by_ip_ds",
+                            "ColumnName": "tenant_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.client_name.2.1750937103111",
+                          "Column": {
+                            "DataSetIdentifier": "analysis__tenants_clients_access_by_ip_ds",
+                            "ColumnName": "client_name"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "DateMeasureField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.oldest_ts.4.1750937112735",
+                          "Column": {
+                            "DataSetIdentifier": "analysis__tenants_clients_access_by_ip_ds",
+                            "ColumnName": "oldest_ts"
+                          },
+                          "AggregationFunction": "MIN"
+                        }
+                      },
+                      {
+                        "DateMeasureField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.latest_ts.3.1750937107635",
+                          "Column": {
+                            "DataSetIdentifier": "analysis__tenants_clients_access_by_ip_ds",
+                            "ColumnName": "latest_ts"
+                          },
+                          "AggregationFunction": "MAX"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "FieldSortOptions": []
+                },
+                "TableOptions": {
+                  "ColumnHeaderStyle": {
+                    "Height": 35
+                  },
+                  "CellStyle": {
+                    "Height": 25
+                  },
+                  "RowFieldNamesStyle": {
+                    "Height": 35
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.ip.0.1750937094176",
+                      "Visibility": "VISIBLE"
+                    },
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.tenant_name.1.1750937099695",
+                      "CustomLabel": "Tenant name",
+                      "Visibility": "VISIBLE"
+                    },
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.client_name.2.1750937103111",
+                      "CustomLabel": "Client name",
+                      "Visibility": "VISIBLE"
+                    },
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.oldest_ts.4.1750937112735",
+                      "CustomLabel": "Oldest timestamp",
+                      "Visibility": "VISIBLE"
+                    },
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.latest_ts.3.1750937107635",
+                      "CustomLabel": "Latest timestamp",
+                      "Visibility": "VISIBLE"
+                    }
+                  ]
+                }
+              },
+              "Actions": []
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "99393ce6-8b07-4fab-80b5-08f6ede4fa70_93f81506-0167-4a97-82e8-83943da0d281",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 0,
+                    "RowSpan": 19
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      }
+    ],
+    "CalculatedFields": [],
+    "ParameterDeclarations": [
+      {
+        "StringParameterDeclaration": {
+          "ParameterValueType": "SINGLE_VALUED",
+          "Name": "IpContains",
+          "DefaultValues": {
+            "StaticValues": [
+              "."
+            ]
+          },
+          "ValueWhenUnset": {
+            "ValueWhenUnsetOption": "RECOMMENDED_VALUE"
+          }
+        }
+      }
+    ],
+    "FilterGroups": [
+      {
+        "FilterGroupId": "13388b4f-4e63-426f-8dca-127bdd545a13",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "4b527f3f-e666-4d84-b9b6-6240ab303d7d",
+              "Column": {
+                "DataSetIdentifier": "analysis__tenants_clients_access_by_ip_ds",
+                "ColumnName": "ip"
+              },
+              "Configuration": {
+                "CustomFilterConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "ParameterName": "IpContains",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "99393ce6-8b07-4fab-80b5-08f6ede4fa70_b321cef9-3c08-4c05-a291-8cb911399dc7",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "99393ce6-8b07-4fab-80b5-08f6ede4fa70_93f81506-0167-4a97-82e8-83943da0d281"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      }
+    ]
+  },
+  "Permissions": [],
+  "Tags": []
+}

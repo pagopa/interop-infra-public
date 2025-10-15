@@ -1,0 +1,1080 @@
+{
+  "Dashboard": {
+    "DashboardId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d",
+    "Arn": "arn:aws:quicksight:eu-south-1:505630707203:dashboard/7f83050d-05bc-4f43-9f9d-04bf0b971a3d",
+    "Name": "PrevisionRedo",
+    "Version": {
+      "CreatedTime": "2025-10-01T15:16:52.711000+02:00",
+      "Errors": [],
+      "VersionNumber": 1,
+      "Status": "CREATION_SUCCESSFUL",
+      "SourceEntityArn": "arn:aws:quicksight:eu-south-1:505630707203:analysis/7addcce0-80d3-4f12-8bab-324a103488bf",
+      "DataSetArns": [
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-auth-server-calls-prevision-data"
+      ],
+      "Sheets": [
+        {
+          "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_b4f675bf-f52c-4c7d-a401-3857bdf8e6f4",
+          "Name": "Overquota Auth Server Clients"
+        },
+        {
+          "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_d1c9efb8-b310-4ff1-a65e-03d2ac4f600e",
+          "Name": "Tabular View"
+        },
+        {
+          "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_99d043f4-b8a2-491b-9752-bab3a9b26eaa",
+          "Name": "Line Charts"
+        }
+      ]
+    },
+    "CreatedTime": "2025-10-01T15:16:52.861000+02:00",
+    "LastPublishedTime": "2025-10-01T15:16:52.861000+02:00",
+    "LastUpdatedTime": "2025-10-01T15:16:52.711000+02:00",
+    "LinkEntities": [
+      "arn:aws:quicksight:eu-south-1:505630707203:analysis/7addcce0-80d3-4f12-8bab-324a103488bf"
+    ]
+  },
+  "Definition": {
+    "DataSetIdentifierDeclarations": [
+      {
+        "Identifier": "New custom SQL",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-auth-server-calls-prevision-data"
+      }
+    ],
+    "Sheets": [
+      {
+        "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_b4f675bf-f52c-4c7d-a401-3857bdf8e6f4",
+        "Name": "Overquota Auth Server Clients",
+        "Visuals": [
+          {
+            "GaugeChartVisual": {
+              "VisualId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_f88fccaf-3bd0-4799-b303-541a1f640531",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Number of client that today have made more calls, to the Auth Server, than expected </visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>\n  <inline font-size=\"14px\">Use tabs on the right to diagnose which clients are exceeding the expected limit.</inline>\n</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "b1ce7f09-9133-47be-90aa-5c97cce208e5.1.1759252082227",
+                        "Column": {
+                          "DataSetIdentifier": "New custom SQL",
+                          "ColumnName": "overquota_clients"
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "5a4dfc80-00b0-4926-8c2b-3dc8c54d594f.1.1759252431273",
+                        "Column": {
+                          "DataSetIdentifier": "New custom SQL",
+                          "ColumnName": "tenant_client_name"
+                        },
+                        "AggregationFunction": "COUNT"
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "TooltipOptions": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "b1ce7f09-9133-47be-90aa-5c97cce208e5.1.1759252082227",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "5a4dfc80-00b0-4926-8c2b-3dc8c54d594f.1.1759252431273",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "Actions": []
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_f88fccaf-3bd0-4799-b303-541a1f640531",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 15,
+                    "RowIndex": 0,
+                    "RowSpan": 10
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_d1c9efb8-b310-4ff1-a65e-03d2ac4f600e",
+        "Name": "Tabular View",
+        "ParameterControls": [
+          {
+            "List": {
+              "ParameterControlId": "89ba6e33-7f83-4d24-99d4-05735c1c8156",
+              "Title": "Show only clients with violations",
+              "SourceParameterName": "ShowViolationsOnly",
+              "DisplayOptions": {
+                "SearchOptions": {
+                  "Visibility": "HIDDEN"
+                },
+                "SelectAllOptions": {
+                  "Visibility": "HIDDEN"
+                },
+                "TitleOptions": {
+                  "Visibility": "VISIBLE",
+                  "FontConfiguration": {
+                    "FontSize": {
+                      "Relative": "MEDIUM"
+                    }
+                  }
+                },
+                "InfoIconLabelOptions": {
+                  "Visibility": "HIDDEN"
+                }
+              },
+              "Type": "SINGLE_SELECT",
+              "SelectableValues": {
+                "Values": [
+                  "No",
+                  "Yes"
+                ]
+              }
+            }
+          }
+        ],
+        "FilterControls": [
+          {
+            "CrossSheet": {
+              "FilterControlId": "9562bf08-8b39-42de-9589-748e4da1c904",
+              "SourceFilterId": "852a7ad6-bde8-4866-917a-a6308b64b3de"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "b7eeefab-a586-47fa-9903-2c5205bdae84",
+              "SourceFilterId": "3ed4f045-8ca0-4728-9e85-3b8e0695026b"
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "PivotTableVisual": {
+              "VisualId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_96aaa39f-0583-42b2-9b70-05a0c415345b",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Call by day and expected call by day limit for the last 30 days</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "PivotTableAggregatedFieldWells": {
+                    "Rows": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.consumer_name.4.1759246754803",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.client_name.5.1759246757208",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "client_name"
+                          }
+                        }
+                      }
+                    ],
+                    "Columns": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.date_slot.6.1759246805177",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "date_slot"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.calls_by_day.0.1759246719529",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "calls_by_day"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.max_limit.1.1759246727175",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "max_limit"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "FieldSortOptions": []
+                },
+                "TableOptions": {
+                  "ColumnHeaderStyle": {
+                    "Height": 25
+                  },
+                  "CellStyle": {},
+                  "RowFieldNamesStyle": {
+                    "Height": 25
+                  },
+                  "RowAlternateColorOptions": {
+                    "Status": "DISABLED",
+                    "UsePrimaryBackgroundColor": "ENABLED"
+                  },
+                  "CollapsedRowDimensionsVisibility": "HIDDEN",
+                  "RowsLayout": "HIERARCHY"
+                },
+                "TotalOptions": {
+                  "RowSubtotalOptions": {
+                    "TotalsVisibility": "VISIBLE",
+                    "CustomLabel": "<<$aws:subtotalDimension>> Subtotal",
+                    "TotalCellStyle": {},
+                    "ValueCellStyle": {},
+                    "MetricHeaderCellStyle": {},
+                    "StyleTargets": [
+                      {
+                        "CellType": "VALUE"
+                      },
+                      {
+                        "CellType": "TOTAL"
+                      },
+                      {
+                        "CellType": "METRIC_HEADER"
+                      }
+                    ]
+                  },
+                  "RowTotalOptions": {
+                    "Placement": "AUTO"
+                  },
+                  "ColumnTotalOptions": {
+                    "Placement": "END"
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.consumer_name.4.1759246754803",
+                      "CustomLabel": "Consumer",
+                      "Visibility": "VISIBLE"
+                    },
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.client_name.5.1759246757208",
+                      "CustomLabel": "Client",
+                      "Visibility": "VISIBLE"
+                    },
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.date_slot.6.1759246805177",
+                      "CustomLabel": "Day",
+                      "Visibility": "VISIBLE"
+                    },
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.calls_by_day.0.1759246719529",
+                      "CustomLabel": "Calls",
+                      "Visibility": "VISIBLE"
+                    },
+                    {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.max_limit.1.1759246727175",
+                      "CustomLabel": "Max Calls limit",
+                      "Visibility": "VISIBLE"
+                    }
+                  ],
+                  "DataPathOptions": [
+                    {
+                      "DataPathList": [
+                        {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.date_slot.6.1759246805177",
+                          "FieldValue": "2025-09-30 00:00:00.000",
+                          "DataPathType": {}
+                        },
+                        {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.max_limit.1.1759246727175",
+                          "FieldValue": "max_limit"
+                        }
+                      ],
+                      "Width": "97px"
+                    }
+                  ]
+                }
+              },
+              "ConditionalFormatting": {
+                "ConditionalFormattingOptions": [
+                  {
+                    "Cell": {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.calls_by_day.0.1759246719529",
+                      "TextFormat": {
+                        "BackgroundColor": {
+                          "Solid": {
+                            "Expression": "SUM({status_severity}) > 0",
+                            "Color": "#FF8700"
+                          }
+                        }
+                      },
+                      "Scopes": [
+                        {
+                          "Role": "FIELD"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "Actions": []
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_96aaa39f-0583-42b2-9b70-05a0c415345b",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 8,
+                    "RowSpan": 18
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "89ba6e33-7f83-4d24-99d4-05735c1c8156",
+                    "ElementType": "PARAMETER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 2,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "9562bf08-8b39-42de-9589-748e4da1c904",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 2,
+                    "ColumnSpan": 2,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "b7eeefab-a586-47fa-9903-2c5205bdae84",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnSpan": 2,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_99d043f4-b8a2-491b-9752-bab3a9b26eaa",
+        "Name": "Line Charts",
+        "ParameterControls": [
+          {
+            "List": {
+              "ParameterControlId": "ddf0be62-7d5d-4067-8f5b-00aae4de64a8",
+              "Title": "Show only clients with violations",
+              "SourceParameterName": "ShowViolationsOnly",
+              "DisplayOptions": {
+                "SearchOptions": {
+                  "Visibility": "HIDDEN"
+                },
+                "SelectAllOptions": {
+                  "Visibility": "HIDDEN"
+                },
+                "TitleOptions": {
+                  "Visibility": "VISIBLE",
+                  "FontConfiguration": {
+                    "FontSize": {
+                      "Relative": "MEDIUM"
+                    }
+                  }
+                },
+                "InfoIconLabelOptions": {
+                  "Visibility": "HIDDEN"
+                }
+              },
+              "Type": "SINGLE_SELECT",
+              "SelectableValues": {
+                "Values": [
+                  "No",
+                  "Yes"
+                ]
+              }
+            }
+          }
+        ],
+        "FilterControls": [
+          {
+            "CrossSheet": {
+              "FilterControlId": "288aa101-f1cc-4497-9361-ff0cf5010b92",
+              "SourceFilterId": "852a7ad6-bde8-4866-917a-a6308b64b3de"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "a7e9371d-3b32-433a-91a9-4075a42d4d12",
+              "SourceFilterId": "3ed4f045-8ca0-4728-9e85-3b8e0695026b"
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "LineChartVisual": {
+              "VisualId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_3b0e0296-125b-45c1-9436-0e7c145da1b7",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Call by day and expected call by day limit for the last 30 days</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Top 20 in alphabetical order</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.date_slot.0.1759242963936",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "date_slot"
+                          },
+                          "HierarchyId": "6a67b5a0-0327-4e01-8ada-f541a7f5d16a"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.calls_by_day.1.1759242992185",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "calls_by_day"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.max_limit.2.1759242994304",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "max_limit"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": [],
+                    "SmallMultiples": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "5a4dfc80-00b0-4926-8c2b-3dc8c54d594f.3.1759243011752",
+                          "Column": {
+                            "DataSetIdentifier": "New custom SQL",
+                            "ColumnName": "tenant_client_name"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "CategorySort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "InteropDevTenantsClientsAccessByIpLTM.date_slot.0.1759242963936",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ],
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "date",
+                      "ApplyTo": {
+                        "FieldId": "InteropDevTenantsClientsAccessByIpLTM.date_slot.0.1759242963936",
+                        "Column": {
+                          "DataSetIdentifier": "New custom SQL",
+                          "ColumnName": "date_slot"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "Series": [
+                  {
+                    "FieldSeriesItem": {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.max_limit.2.1759242994304",
+                      "AxisBinding": "PRIMARY_YAXIS",
+                      "Settings": {
+                        "LineStyleSettings": {
+                          "LineStyle": "DOTTED"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "FieldSeriesItem": {
+                      "FieldId": "InteropDevTenantsClientsAccessByIpLTM.calls_by_day.1.1759242992185",
+                      "AxisBinding": "PRIMARY_YAXIS",
+                      "Settings": {
+                        "LineStyleSettings": {
+                          "LineStyle": "SOLID"
+                        },
+                        "MarkerStyleSettings": {
+                          "MarkerVisibility": "VISIBLE"
+                        }
+                      }
+                    }
+                  }
+                ],
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": [
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.date_slot.0.1759242963936",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.max_limit.2.1759242994304",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "5a4dfc80-00b0-4926-8c2b-3dc8c54d594f.3.1759243011752",
+                          "Visibility": "VISIBLE"
+                        }
+                      },
+                      {
+                        "FieldTooltipItem": {
+                          "FieldId": "InteropDevTenantsClientsAccessByIpLTM.calls_by_day.1.1759242992185",
+                          "Visibility": "VISIBLE"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "VisualPalette": {
+                  "ColorMap": [
+                    {
+                      "Element": {
+                        "FieldId": "InteropDevTenantsClientsAccessByIpLTM.calls_by_day.1.1759242992185",
+                        "FieldValue": "calls_by_day"
+                      },
+                      "Color": "#219FD7"
+                    },
+                    {
+                      "Element": {
+                        "FieldId": "InteropDevTenantsClientsAccessByIpLTM.max_limit.2.1759242994304",
+                        "FieldValue": "max_limit"
+                      },
+                      "Color": "#DE3B00"
+                    }
+                  ]
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "6a67b5a0-0327-4e01-8ada-f541a7f5d16a",
+                    "DrillDownFilters": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_3b0e0296-125b-45c1-9436-0e7c145da1b7",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 0,
+                    "RowSpan": 21
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "ddf0be62-7d5d-4067-8f5b-00aae4de64a8",
+                    "ElementType": "PARAMETER_CONTROL",
+                    "ColumnSpan": 2,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "288aa101-f1cc-4497-9361-ff0cf5010b92",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnSpan": 2,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "a7e9371d-3b32-433a-91a9-4075a42d4d12",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnSpan": 2,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      }
+    ],
+    "CalculatedFields": [
+      {
+        "DataSetIdentifier": "New custom SQL",
+        "Name": "overquota_clients",
+        "Expression": "sum( ifelse( {today_severity} > 0, 1, 0))"
+      },
+      {
+        "DataSetIdentifier": "New custom SQL",
+        "Name": "tenant_client_name",
+        "Expression": "concat( {consumer_name}, ' :: ', {client_name} )"
+      },
+      {
+        "DataSetIdentifier": "New custom SQL",
+        "Name": "today_severity_or_all",
+        "Expression": "ifelse( ${ShowViolationsOnly} = 'Yes', {today_severity}, 100 )"
+      }
+    ],
+    "ParameterDeclarations": [
+      {
+        "StringParameterDeclaration": {
+          "ParameterValueType": "SINGLE_VALUED",
+          "Name": "ShowViolationsOnly",
+          "DefaultValues": {
+            "StaticValues": [
+              "Yes"
+            ]
+          },
+          "ValueWhenUnset": {
+            "ValueWhenUnsetOption": "RECOMMENDED_VALUE"
+          }
+        }
+      }
+    ],
+    "FilterGroups": [
+      {
+        "FilterGroupId": "904f35ec-55da-4c0e-be7b-e4ae3af5985f",
+        "Filters": [
+          {
+            "RelativeDatesFilter": {
+              "FilterId": "4d692b57-573f-4d92-8981-20597365ef91",
+              "Column": {
+                "DataSetIdentifier": "New custom SQL",
+                "ColumnName": "date_slot"
+              },
+              "AnchorDateConfiguration": {
+                "AnchorOption": "NOW"
+              },
+              "MinimumGranularity": "DAY",
+              "TimeGranularity": "DAY",
+              "RelativeDateType": "LAST",
+              "RelativeDateValue": 30,
+              "NullOption": "NON_NULLS_ONLY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_d1c9efb8-b310-4ff1-a65e-03d2ac4f600e",
+                "Scope": "ALL_VISUALS"
+              },
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_99d043f4-b8a2-491b-9752-bab3a9b26eaa",
+                "Scope": "ALL_VISUALS"
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "61c10d01-6dee-4c1d-a95a-3d6e60961852",
+        "Filters": [
+          {
+            "NumericRangeFilter": {
+              "FilterId": "8a56f5db-2bad-4cec-934f-e5c3f1429039",
+              "Column": {
+                "DataSetIdentifier": "New custom SQL",
+                "ColumnName": "today_severity_or_all"
+              },
+              "IncludeMinimum": false,
+              "IncludeMaximum": false,
+              "RangeMinimum": {
+                "StaticValue": 0.0
+              },
+              "NullOption": "ALL_VALUES"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_d1c9efb8-b310-4ff1-a65e-03d2ac4f600e",
+                "Scope": "ALL_VISUALS"
+              },
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_99d043f4-b8a2-491b-9752-bab3a9b26eaa",
+                "Scope": "ALL_VISUALS"
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "8656010a-603d-43a2-98ef-f99d8b212784",
+        "Filters": [
+          {
+            "TopBottomFilter": {
+              "FilterId": "a2e7d442-b42a-48e2-88ea-c93c7b99163f",
+              "Column": {
+                "DataSetIdentifier": "New custom SQL",
+                "ColumnName": "tenant_client_name"
+              },
+              "Limit": 20,
+              "AggregationSortConfigurations": [
+                {
+                  "Column": {
+                    "DataSetIdentifier": "New custom SQL",
+                    "ColumnName": "tenant_client_name"
+                  },
+                  "SortDirection": "DESC",
+                  "AggregationFunction": {
+                    "CategoricalAggregationFunction": "COUNT"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_99d043f4-b8a2-491b-9752-bab3a9b26eaa",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_3b0e0296-125b-45c1-9436-0e7c145da1b7"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "8cd6a0e4-a8a2-4ebf-a875-72d1817346e8",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "852a7ad6-bde8-4866-917a-a6308b64b3de",
+              "Column": {
+                "DataSetIdentifier": "New custom SQL",
+                "ColumnName": "consumer_name"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Show Consumers",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_d1c9efb8-b310-4ff1-a65e-03d2ac4f600e",
+                "Scope": "ALL_VISUALS"
+              },
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_99d043f4-b8a2-491b-9752-bab3a9b26eaa",
+                "Scope": "ALL_VISUALS"
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "033e116c-fed3-4bc9-b201-2c24a1224809",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "3ed4f045-8ca0-4728-9e85-3b8e0695026b",
+              "Column": {
+                "DataSetIdentifier": "New custom SQL",
+                "ColumnName": "client_name"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Show Clients",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_d1c9efb8-b310-4ff1-a65e-03d2ac4f600e",
+                "Scope": "ALL_VISUALS"
+              },
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_99d043f4-b8a2-491b-9752-bab3a9b26eaa",
+                "Scope": "ALL_VISUALS"
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "057a9357-f75e-4993-8e4c-f86f644c5af7",
+        "Filters": [
+          {
+            "RelativeDatesFilter": {
+              "FilterId": "a1a01593-748a-4379-9d07-a1d4d01fa5fe",
+              "Column": {
+                "DataSetIdentifier": "New custom SQL",
+                "ColumnName": "date_slot"
+              },
+              "AnchorDateConfiguration": {
+                "AnchorOption": "NOW"
+              },
+              "MinimumGranularity": "DAY",
+              "TimeGranularity": "DAY",
+              "RelativeDateType": "THIS",
+              "NullOption": "NON_NULLS_ONLY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_b4f675bf-f52c-4c7d-a401-3857bdf8e6f4",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "7f83050d-05bc-4f43-9f9d-04bf0b971a3d_f88fccaf-3bd0-4799-b303-541a1f640531"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      }
+    ],
+    "AnalysisDefaults": {
+      "DefaultNewSheetConfiguration": {
+        "InteractiveLayoutConfiguration": {
+          "Grid": {
+            "CanvasSizeOptions": {
+              "ScreenCanvasSizeOptions": {
+                "ResizeOption": "FIXED",
+                "OptimizedViewPortWidth": "1600px"
+              }
+            }
+          }
+        },
+        "SheetContentType": "INTERACTIVE"
+      }
+    },
+    "Options": {
+      "WeekStart": "SUNDAY"
+    }
+  },
+  "Permissions": [],
+  "Tags": []
+}

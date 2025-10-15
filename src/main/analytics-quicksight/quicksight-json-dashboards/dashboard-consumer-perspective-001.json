@@ -1,0 +1,797 @@
+{
+  "Dashboard": {
+    "DashboardId": "interop-dev-consumer_perspective_001_DASH",
+    "Arn": "arn:aws:quicksight:eu-south-1:505630707203:dashboard/interop-dev-consumer_perspective_001_DASH",
+    "Name": "Consumer Perspective 001 (interop-dev)",
+    "Version": {
+      "CreatedTime": "2025-09-22T10:53:22.942000+02:00",
+      "Errors": [],
+      "VersionNumber": 1,
+      "Status": "CREATION_SUCCESSFUL",
+      "DataSetArns": [
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_02_not_used_subscribed_eservice__final",
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_02_client_without_token__final",
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_client_not_used_after_ts__last_issued_at"
+      ],
+      "Sheets": [
+        {
+          "SheetId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_94fa7582-67ba-4ae0-af15-0c02b888386b",
+          "Name": "Never used resources"
+        },
+        {
+          "SheetId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_07a80e9b-e832-4b3a-a646-2b6f2f8ffb9a",
+          "Name": "not used after a reference date"
+        }
+      ]
+    },
+    "CreatedTime": "2025-09-22T10:53:22.570000+02:00",
+    "LastPublishedTime": "2025-09-22T10:53:22.570000+02:00",
+    "LastUpdatedTime": "2025-09-22T10:53:22.942000+02:00"
+  },
+  "Definition": {
+    "DataSetIdentifierDeclarations": [
+      {
+        "Identifier": "mv_02_not_used_subscribed_eservice__final",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_02_not_used_subscribed_eservice__final"
+      },
+      {
+        "Identifier": "mv_01_client_not_used_after_ts__last_issued_at",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_client_not_used_after_ts__last_issued_at"
+      },
+      {
+        "Identifier": "mv_02_client_without_token__final",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_02_client_without_token__final"
+      }
+    ],
+    "Sheets": [
+      {
+        "SheetId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_94fa7582-67ba-4ae0-af15-0c02b888386b",
+        "Name": "Never used resources",
+        "ParameterControls": [
+          {
+            "TextField": {
+              "ParameterControlId": "3b0a2938-eaa0-4cca-a4e6-ac26623aa90a",
+              "Title": "consumer name (partial match)",
+              "SourceParameterName": "ConsumerName",
+              "DisplayOptions": {
+                "TitleOptions": {
+                  "Visibility": "VISIBLE",
+                  "FontConfiguration": {
+                    "FontSize": {
+                      "Relative": "MEDIUM"
+                    }
+                  }
+                },
+                "PlaceholderOptions": {
+                  "Visibility": "VISIBLE"
+                },
+                "InfoIconLabelOptions": {
+                  "Visibility": "HIDDEN"
+                }
+              }
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "TableVisual": {
+              "VisualId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_9f9a94a8-5a5b-4309-b1d0-ce481d61758a",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>used Vs unused subscribed e-service ratio, for each consumer</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Select one row to filter the table below</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "1baf37e2-33fe-480f-8ee6-ec726326d13c.consumer_name.0.1751467244624",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_not_used_subscribed_eservice__final",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "1baf37e2-33fe-480f-8ee6-ec726326d13c.used_eservices.3.1751467446164",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_not_used_subscribed_eservice__final",
+                            "ColumnName": "used_eservices"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "unused_eservice.4.1751467447193",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_not_used_subscribed_eservice__final",
+                            "ColumnName": "unused_eservice"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "1baf37e2-33fe-480f-8ee6-ec726326d13c.used_eservices_percent.3.1751467856098",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_not_used_subscribed_eservice__final",
+                            "ColumnName": "used_eservices_percent"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "1baf37e2-33fe-480f-8ee6-ec726326d13c.used_eservices_percent.3.1751467856098",
+                        "Direction": "ASC"
+                      }
+                    }
+                  ]
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 25
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "1baf37e2-33fe-480f-8ee6-ec726326d13c.consumer_name.0.1751467244624",
+                      "Width": "569px",
+                      "CustomLabel": "Consumer Name"
+                    },
+                    {
+                      "FieldId": "1baf37e2-33fe-480f-8ee6-ec726326d13c.used_eservices.3.1751467446164",
+                      "Width": "179px",
+                      "CustomLabel": "E-service with tokens"
+                    },
+                    {
+                      "FieldId": "unused_eservice.4.1751467447193",
+                      "CustomLabel": "E-service without tokens"
+                    },
+                    {
+                      "FieldId": "1baf37e2-33fe-480f-8ee6-ec726326d13c.used_eservices_percent.3.1751467856098",
+                      "CustomLabel": "% Used E-service "
+                    }
+                  ]
+                }
+              },
+              "ConditionalFormatting": {
+                "ConditionalFormattingOptions": [
+                  {
+                    "Row": {
+                      "BackgroundColor": {
+                        "Solid": {
+                          "Expression": "SUM({used_eservices_percent}) < 1",
+                          "Color": "#FFAAA5"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "Actions": []
+            }
+          },
+          {
+            "TableVisual": {
+              "VisualId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_848a419f-c7c3-4dac-95b6-3ad04fb64672",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  used Vs unused clients ratio. \n  <br/>\n  Used means had successfully requested some token\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "3b438bcb-3a35-4d80-9e54-b76e9383d79e.consumer_name.0.1751468220265",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_client_without_token__final",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "3b438bcb-3a35-4d80-9e54-b76e9383d79e.client_not_used__count.2.1751468229017",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_client_without_token__final",
+                            "ColumnName": "client_not_used__count"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "3b438bcb-3a35-4d80-9e54-b76e9383d79e.client_not_used__percent.3.1751468232041",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_client_without_token__final",
+                            "ColumnName": "client_not_used__percent"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "3b438bcb-3a35-4d80-9e54-b76e9383d79e.client_not_used__percent.3.1751468232041",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ]
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 25
+                  },
+                  "CellStyle": {
+                    "Height": 25
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "3b438bcb-3a35-4d80-9e54-b76e9383d79e.consumer_name.0.1751468220265",
+                      "Width": "581px",
+                      "CustomLabel": "consumer name"
+                    },
+                    {
+                      "FieldId": "3b438bcb-3a35-4d80-9e54-b76e9383d79e.client_not_used__count.2.1751468229017",
+                      "CustomLabel": "clients without tokens"
+                    },
+                    {
+                      "FieldId": "3b438bcb-3a35-4d80-9e54-b76e9383d79e.client_not_used__percent.3.1751468232041",
+                      "CustomLabel": "% not used clients"
+                    }
+                  ]
+                }
+              },
+              "ConditionalFormatting": {
+                "ConditionalFormattingOptions": [
+                  {
+                    "Row": {
+                      "BackgroundColor": {
+                        "Solid": {
+                          "Expression": "SUM({client_not_used__percent}) >= 99",
+                          "Color": "#FFAAA5"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "Actions": []
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_9f9a94a8-5a5b-4309-b1d0-ce481d61758a",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 26,
+                    "RowIndex": 0,
+                    "RowSpan": 8
+                  },
+                  {
+                    "ElementId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_848a419f-c7c3-4dac-95b6-3ad04fb64672",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 26,
+                    "RowIndex": 8,
+                    "RowSpan": 8
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "3b0a2938-eaa0-4cca-a4e6-ac26623aa90a",
+                    "ElementType": "PARAMETER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_07a80e9b-e832-4b3a-a646-2b6f2f8ffb9a",
+        "Name": "not used after a reference date",
+        "ParameterControls": [
+          {
+            "DateTimePicker": {
+              "ParameterControlId": "efdcaf05-02a4-499d-a44b-c5107af6851d",
+              "Title": "reference date",
+              "SourceParameterName": "TokenIssuedAtAfter",
+              "DisplayOptions": {
+                "TitleOptions": {
+                  "Visibility": "VISIBLE",
+                  "FontConfiguration": {
+                    "FontSize": {
+                      "Relative": "MEDIUM"
+                    }
+                  }
+                },
+                "DateTimeFormat": "YYYY/MM/DD HH:mm:ss",
+                "InfoIconLabelOptions": {
+                  "Visibility": "HIDDEN"
+                }
+              }
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "TableVisual": {
+              "VisualId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_8ceaecf1-58c0-40d5-99de-b5f65fae32f8",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  Number of clients without tokens since  \n  <parameter>${TokenIssuedAtAfter}</parameter>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.consumer_name.0.1751468292522",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_client_not_used_after_ts__last_issued_at",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.client_name.1.1751468304898",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_client_not_used_after_ts__last_issued_at",
+                            "ColumnName": "client_name"
+                          },
+                          "AggregationFunction": "COUNT"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.client_name.1.1751468304898",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ]
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 25
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.consumer_name.0.1751468292522",
+                      "Width": "506px",
+                      "CustomLabel": "Consumer Name"
+                    },
+                    {
+                      "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.client_name.1.1751468304898",
+                      "Width": "325px",
+                      "CustomLabel": "Client Without Tokens since <<$TokenIssuedAtAfter>>"
+                    }
+                  ]
+                }
+              },
+              "Actions": [
+                {
+                  "CustomActionId": "49372310-f995-4bd9-a731-1e391b85aba7",
+                  "Name": "Filter Child on select",
+                  "Status": "ENABLED",
+                  "Trigger": "DATA_POINT_CLICK",
+                  "ActionOperations": [
+                    {
+                      "FilterOperation": {
+                        "SelectedFieldsConfiguration": {
+                          "SelectedFields": [
+                            "77e04d71-c96a-453b-9650-d145a574b0a5.consumer_name.0.1751468292522"
+                          ]
+                        },
+                        "TargetVisualsConfiguration": {
+                          "SameSheetTargetVisualConfiguration": {
+                            "TargetVisuals": [
+                              "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_00fe05ee-ca7e-4a09-88d0-56a947279d11"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "TableVisual": {
+              "VisualId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_00fe05ee-ca7e-4a09-88d0-56a947279d11",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  Client senza token dal \n  <parameter>${TokenIssuedAtAfter}</parameter>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.consumer_name.0.1751531353826",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_client_not_used_after_ts__last_issued_at",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.client_name.1.1751531367584",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_client_not_used_after_ts__last_issued_at",
+                            "ColumnName": "client_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "2147493b-c022-43ab-ae1f-59f9101ec167.3.1751532701810",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_client_not_used_after_ts__last_issued_at",
+                            "ColumnName": "last_issued_at_display"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": []
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.client_name.1.1751531367584",
+                        "Direction": "ASC"
+                      }
+                    }
+                  ]
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 25
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.consumer_name.0.1751531353826",
+                      "Width": "332px",
+                      "CustomLabel": "Consumer Name"
+                    },
+                    {
+                      "FieldId": "77e04d71-c96a-453b-9650-d145a574b0a5.client_name.1.1751531367584",
+                      "Width": "463px",
+                      "CustomLabel": "Client Name"
+                    },
+                    {
+                      "FieldId": "2147493b-c022-43ab-ae1f-59f9101ec167.3.1751532701810",
+                      "Width": "243px",
+                      "CustomLabel": "Last token before <<$TokenIssuedAtAfter>>"
+                    }
+                  ]
+                }
+              },
+              "Actions": []
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_8ceaecf1-58c0-40d5-99de-b5f65fae32f8",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 26,
+                    "RowIndex": 0,
+                    "RowSpan": 5
+                  },
+                  {
+                    "ElementId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_00fe05ee-ca7e-4a09-88d0-56a947279d11",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 26,
+                    "RowIndex": 5,
+                    "RowSpan": 12
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "efdcaf05-02a4-499d-a44b-c5107af6851d",
+                    "ElementType": "PARAMETER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 3,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      }
+    ],
+    "CalculatedFields": [
+      {
+        "DataSetIdentifier": "mv_01_client_not_used_after_ts__last_issued_at",
+        "Name": "last_issued_at_display",
+        "Expression": "ifelse( {last_issued_at} = -1, 'No token', toString({last_issued_at_ts}) )"
+      }
+    ],
+    "ParameterDeclarations": [
+      {
+        "StringParameterDeclaration": {
+          "ParameterValueType": "SINGLE_VALUED",
+          "Name": "SelectedChildConsumerName",
+          "DefaultValues": {
+            "StaticValues": []
+          },
+          "ValueWhenUnset": {
+            "ValueWhenUnsetOption": "NULL"
+          }
+        }
+      },
+      {
+        "StringParameterDeclaration": {
+          "ParameterValueType": "SINGLE_VALUED",
+          "Name": "ConsumerName",
+          "DefaultValues": {
+            "StaticValues": []
+          },
+          "ValueWhenUnset": {
+            "ValueWhenUnsetOption": "NULL"
+          }
+        }
+      },
+      {
+        "DateTimeParameterDeclaration": {
+          "Name": "TokenIssuedAtAfter",
+          "DefaultValues": {
+            "StaticValues": [],
+            "RollingDate": {
+              "Expression": "addDateTime(-30, 'DD', truncDate('DD', now()))"
+            }
+          },
+          "TimeGranularity": "DAY"
+        }
+      }
+    ],
+    "FilterGroups": [
+      {
+        "FilterGroupId": "aa4f3118-446a-428f-b801-e5a4e0e68ba4",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "b1d9676b-3572-424c-93bf-be5132b88368",
+              "Column": {
+                "DataSetIdentifier": "mv_02_not_used_subscribed_eservice__final",
+                "ColumnName": "consumer_name"
+              },
+              "Configuration": {
+                "CustomFilterConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "ParameterName": "ConsumerName",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_94fa7582-67ba-4ae0-af15-0c02b888386b",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_9f9a94a8-5a5b-4309-b1d0-ce481d61758a"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "5449855a-853c-415b-8ddd-f6119142716d",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "535ac935-51be-4505-810e-f679dff822ea",
+              "Column": {
+                "DataSetIdentifier": "mv_02_client_without_token__final",
+                "ColumnName": "consumer_name"
+              },
+              "Configuration": {
+                "CustomFilterConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "ParameterName": "ConsumerName",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_94fa7582-67ba-4ae0-af15-0c02b888386b",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_848a419f-c7c3-4dac-95b6-3ad04fb64672"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "d7d11b71-9fa7-4d5b-abe8-45f772d1cce3",
+        "Filters": [
+          {
+            "TimeRangeFilter": {
+              "FilterId": "3bed933e-9110-4da0-8eb8-dfd56a2763d0",
+              "Column": {
+                "DataSetIdentifier": "mv_01_client_not_used_after_ts__last_issued_at",
+                "ColumnName": "last_issued_at_ts"
+              },
+              "IncludeMaximum": false,
+              "RangeMaximumValue": {
+                "Parameter": "TokenIssuedAtAfter"
+              },
+              "NullOption": "NON_NULLS_ONLY",
+              "TimeGranularity": "DAY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "095a4a52-9dd1-4d50-a2ab-8c0a5912217f_07a80e9b-e832-4b3a-a646-2b6f2f8ffb9a",
+                "Scope": "ALL_VISUALS"
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      }
+    ],
+    "AnalysisDefaults": {
+      "DefaultNewSheetConfiguration": {
+        "InteractiveLayoutConfiguration": {
+          "Grid": {
+            "CanvasSizeOptions": {
+              "ScreenCanvasSizeOptions": {
+                "ResizeOption": "FIXED",
+                "OptimizedViewPortWidth": "1600px"
+              }
+            }
+          }
+        },
+        "SheetContentType": "INTERACTIVE"
+      }
+    }
+  },
+  "Permissions": [],
+  "Tags": []
+}
