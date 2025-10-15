@@ -57,7 +57,7 @@ The code is currently organized into multiple Terraform states:
 Each state has an `env/` folder that contains one subfolder (e.g. `env/dev/`) for each environment where the state needs to be deployed.
 The environment subfolder contains the TF backend configuration and TF variables values for that specific environment.
 
-We use a wrapper script `src/terrafrom.sh` (referenced by all states) to run Terraform commands on an environment with simplified syntax, for example:
+We use a wrapper script `src/terraform.sh` (referenced by all states) to run Terraform commands on an environment with simplified syntax, for example:
 ```bash
 cd src/main/core
 ./terraform.sh plan dev # will use ./env/dev/
