@@ -65,6 +65,9 @@ cd src/main/core
 
 You can also get a concise plan output by running `./terraform.sh summ dev` (requires tf-summarize, see previous section).
 
+ℹ️  about file names: we use a numeric prefix on each Terraform file (e.g. `10-network.tf`) to provide a hint about "layers" (lowest = inner foundation, e.g. network) to the readers.
+Terraform doesn't actually use this prefix when calculating the plan, instead it builds a dependency graph.
+
 ## External dependencies
 
 Some resources are managed using custom reusable modules from [infra-commons](https://github.com/pagopa/interop-infra-commons/tree/main/terraform/modules) (e.g. PostgreSQL users).
