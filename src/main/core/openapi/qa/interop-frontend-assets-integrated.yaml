@@ -1,0 +1,507 @@
+openapi: 3.0.3
+info:
+  title: interop-frontend-assets
+  description: Provides endpoints to request UI, Policy Notices, M2M Interface Specification, and other frontend assets.
+  version: 0.0
+  contact:
+    name: API Support
+    url: http://www.example.com/support
+    email: support@example.com
+  termsOfService: http://swagger.io/terms/
+  x-api-id: an x-api-id
+  x-summary: an x-summary
+servers:
+  - url: '/'
+    description: Base url of the Interoperability Frontend Assets
+tags:
+  - name: ui
+    description: Returns the UI
+  - name: privacy notices
+    description: Returns Privacy Notices
+  - name: interface specification
+    description: Returns M2M Interface Specification
+  - name: maintenance window
+    description: Returns Maintenance Window data
+  - name: temp-blacklist
+    description: Returns Temp Blacklist data
+paths:
+  /:
+    get:
+      tags:
+        - ui
+        - mock
+      summary: Get UI
+      description: Returns a response with a status code equal to 301 and a new URL equal to '/ui'
+      responses:
+        '301':
+          description: Redirect to /ui
+          headers:
+            Location:
+              schema:
+                type: string
+                example: '/ui'
+      x-amazon-apigateway-integration:
+        type: mock
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        responses:
+          '301':
+            statusCode: '301'
+            responseParameters:
+              method.response.header.Location: "'/ui'"
+        requestTemplates:
+          application/json: '{"statusCode": 301}'
+  /consent/latest/{lang}/pp.json:
+    get:
+      tags:
+        - consent
+        - privacy
+        - notices
+        - s3
+      summary: Get pp.json
+      description: Returns a JSON containing privacy notices.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $PrivacyNoticesS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        requestParameters:
+          integration.request.path.lang: "method.request.path.lang"
+        responses:
+          '':
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500
+  /consent/latest/{lang}/tos.json:
+    get:
+      tags:
+        - consent
+        - privacy
+        - notices
+        - s3
+      summary: Get tos.json
+      description: Returns a JSON containing privacy notices.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $PrivacyNoticesS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        requestParameters:
+          integration.request.path.lang: "method.request.path.lang"
+        responses:
+          '':
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500
+  /m2m/v1-interface-specification.yaml:
+    get:
+      tags:
+        - m2m
+        - api
+        - s3
+      summary: Get interface-specification.yaml
+      description: Returns a YAML containing V1 M2M interface specification.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $FrontendAdditionalAssetsS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        responses:
+          '':
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500
+  /m2m/v2-interface-specification.yaml:
+    get:
+      tags:
+        - m2m
+        - api
+        - s3
+      summary: Get interface-specification.yaml
+      description: Returns a YAML containing V2 M2M interface specification.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $FrontendAdditionalAssetsS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        responses:
+          '':
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500
+  /signalhub/pdnd_designazione_responsabilita_dati_personali_sh_v1.pdf:
+    get:
+      tags:
+        - signalhub
+        - s3
+      summary: Get Signalhub legal file
+      description: Get Signalhub legal file
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $FrontendAdditionalAssetsS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        responses:
+          '':
+            statusCode: 200
+            contentHandling: "CONVERT_TO_BINARY"
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500
+  /maintenance-window/data.json:
+    get:
+      tags:
+        - maintenance
+        - window
+        - s3
+      summary: Get /maintenance-window/data.json
+      description: Returns a JSON containing maintenance window data.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $FrontendAdditionalAssetsS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        responses:
+          '':
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500
+  /temp-blacklist.json:
+    get:
+      tags:
+        - blacklist
+        - s3
+      summary: Get temp-blacklist.json
+      description: Returns a JSON containing the blacklist.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $FrontendAdditionalAssetsS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        responses:
+          '':
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500
+  /ui:
+    get:
+      tags:
+        - UI
+        - User Interface
+        - Frontend
+      summary: Get UI
+      description: Returns the frontend of the Interop platform.
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionId: ${stageVariables.VpcLinkId}
+        connectionType: VPC_LINK
+        uri: http://${stageVariables.CustomDomainName}/ui/
+    head:
+      tags:
+        - UI
+        - User Interface
+        - Frontend
+      summary: Retrieve the header of the UI
+      description: Returns the header of the Interop platform's frontend.
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: HEAD
+        passthroughBehavior: when_no_match
+        connectionId: ${stageVariables.VpcLinkId}
+        connectionType: VPC_LINK
+        uri: http://${stageVariables.CustomDomainName}/ui/
+    options:
+      tags:
+        - UI
+        - User Interface
+        - Frontend
+      summary: Get options of the UI
+      description: Returns the information about the options of the Interop platform's frontend.
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: OPTIONS
+        passthroughBehavior: when_no_match
+        connectionId: ${stageVariables.VpcLinkId}
+        connectionType: VPC_LINK
+        uri: http://${stageVariables.CustomDomainName}/ui/
+  /ui/{proxy+}:
+    get:
+      tags:
+        - UI
+        - User Interface
+        - Frontend
+      summary: Get any resource under /ui
+      description: Returns any resource under /ui path.
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionId: ${stageVariables.VpcLinkId}
+        connectionType: VPC_LINK
+        uri: http://${stageVariables.CustomDomainName}/ui/{proxy}
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+    head:
+      tags:
+        - UI
+        - User Interface
+        - Frontend
+      summary: Retrieve the header of any resource under /ui
+      description: Returns the header of any resource under /ui.
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: HEAD
+        passthroughBehavior: when_no_match
+        connectionId: ${stageVariables.VpcLinkId}
+        connectionType: VPC_LINK
+        uri: http://${stageVariables.CustomDomainName}/ui/{proxy}
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+    options:
+      tags:
+        - UI
+        - User Interface
+        - Frontend
+      summary: Get the options of any resource under /ui
+      description: Returns information about the options of any resource under /ui.
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: OPTIONS
+        passthroughBehavior: when_no_match
+        connectionId: ${stageVariables.VpcLinkId}
+        connectionType: VPC_LINK
+        uri: http://${stageVariables.CustomDomainName}/ui/{proxy}
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"

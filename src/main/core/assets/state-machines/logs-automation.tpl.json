@@ -1,0 +1,130 @@
+{
+  "Comment": "A description of my state machine",
+  "StartAt": "CalculateLogsDates",
+  "States": {
+    "CalculateLogsDates": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${LogsDatesLambdaArn}",
+        "Payload.$": "$"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException"
+          ],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 6,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "ForEachDate",
+      "ResultSelector": {
+        "export_dates.$": "$.Payload.export_dates"
+      },
+      "ResultPath": "$.TaskResult"
+    },
+    "ForEachDate": {
+      "Type": "Map",
+      "Iterator": {
+        "StartAt": "CreateExportTask",
+        "States": {
+          "CreateExportTask": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "OutputPath": "$.Payload",
+            "Parameters": {
+              "FunctionName": "${LogsExportLambdaArn}",
+              "Payload.$": "$"
+            },
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "Lambda.ServiceException",
+                  "Lambda.AWSLambdaException",
+                  "Lambda.SdkClientException"
+                ],
+                "IntervalSeconds": 2,
+                "MaxAttempts": 6,
+                "BackoffRate": 2
+              }
+            ],
+            "Next": "DescribeExportTasks"
+          },
+          "DescribeExportTasks": {
+            "Type": "Task",
+            "Parameters": {
+              "TaskId.$": "$.task_id"
+            },
+            "Resource": "arn:aws:states:::aws-sdk:cloudwatchlogs:describeExportTasks",
+            "Next": "CheckExportStatus"
+          },
+          "CheckExportStatus": {
+            "Type": "Choice",
+            "Choices": [
+              {
+                "Or": [
+                  {
+                    "Variable": "$.ExportTasks[0].Status.Code",
+                    "StringMatches": "PENDING"
+                  },
+                  {
+                    "Variable": "$.ExportTasks[0].Status.Code",
+                    "StringMatches": "RUNNING"
+                  }
+                ],
+                "Next": "Wait"
+              },
+              {
+                "Variable": "$.ExportTasks[0].Status.Code",
+                "StringMatches": "COMPLETED",
+                "Next": "NextIteration"
+              }
+            ],
+            "Default": "Fail"
+          },
+          "Wait": {
+            "Type": "Wait",
+            "Seconds": 120,
+            "Next": "TransformInput"
+          },
+          "NextIteration": {
+            "Type": "Pass",
+            "End": true
+          },
+          "TransformInput": {
+            "Type": "Pass",
+            "Next": "DescribeExportTasks",
+            "Parameters": {
+              "task_id.$": "$.ExportTasks[0].TaskId"
+            }
+          },
+          "Fail": {
+            "Type": "Fail"
+          }
+        }
+      },
+      "ItemsPath": "$.TaskResult.export_dates",
+      "MaxConcurrency": 1,
+      "Parameters": {
+        "log_group.$": "$.log_group",
+        "bucket.$": "$.bucket",
+        "logs_date.$": "$$.Map.Item.Value"
+      },
+      "ResultPath": "$.TaskResult",
+      "Next": "StartCrawler"
+    },
+    "StartCrawler": {
+      "Type": "Task",
+      "End": true,
+      "Parameters": {
+        "Name.$": "$.crawler"
+      },
+      "Resource": "arn:aws:states:::aws-sdk:glue:startCrawler"
+    }
+  },
+  "TimeoutSeconds": 14400
+}

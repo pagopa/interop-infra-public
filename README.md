@@ -87,6 +87,7 @@ The project should be deployed in the following order:
 
 0. Before deploying any state, reset the values inside the files in `env/` since most of those values will be different for you.
     - a list of variables and their description can be found in `98-variables.tf` in each state.
+    - some variables have already been reset (e.g. Github repos names, to avoid giving unintended permissions to our repos)
 1. `init` state to setup the remote state resources.
     - after the resources are ready, set the appropriate TF backend values in `env/*/backend.tfvars` for all the states
 2. `core` state
