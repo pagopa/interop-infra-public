@@ -42,7 +42,7 @@ DB users are managed by a custom Terraform module that uses `psql` to run SQL st
 
 ### tf-summarize (optional)
 
-[tf-summarize](https://github.com/dineshba/tf-summarize) is used in our Terraform wrapper script (see following sections) to prettify the TF plan output.
+[tf-summarize](https://github.com/dineshba/tf-summarize) is used in our Terraform wrapper script (see following sections) to summarize the TF plan output.
 
 ## Project structure
 
@@ -63,9 +63,41 @@ cd src/main/core
 ./terraform.sh plan dev # will use ./env/dev/
 ```
 
+You can also get a concise plan output by running `./terraform.sh summ dev` (requires tf-summarize, see previous section).
 
+## External dependencies
 
+Some resources are managed using custom reusable modules from [infra-commons](https://github.com/pagopa/interop-infra-commons/tree/main/terraform/modules) (e.g. PostgreSQL users).
 
+```terraform
+module "example" {
+  source = "git::https://github.com/pagopa/interop-infra-commons//[PATH_TO_MODULE]?ref=[TAG]"
+  ...
+}
+```
 
+⚠️  it's highly recommended to pin the module to a tag (currently commit hashes are not supported by Terraform).
 
+## Deploy steps
 
+The project should be deployed in the following order:
+
+1. `init` state to setup the remote state resources.
+    - after the resources are ready, set the appropriate TF backend values in `env/ENV_NAME/backend.tfvars` for all the states
+2. `core` state
+3. `k8s` state
+4. (optional) `analytics` state
+5. (optional) `analytics-quicksight` state
+
+## Notes about reuse
+
+This implementation may require some changes to work on your account:
+
+- Some resource identifiers are globally unique across all AWS accounts (e.g. S3 bucket names), and they will need to be changed accordingly before your deploy.
+    - Bucket names use `local.project` as a prefix, changing that value could be sufficient.
+- Access to the AWS accounts is managed through IAM roles (e.g. an organization with AWS SSO and permission sets).
+    - AWS users access must be implemented separately
+- A DNS domain can be delegated to the production AWS account, which may delegate (not mandatory) "environment subdomains" to other accounts.
+    - For example: `interop.example.com` is delegated to the production account, which then delegates `dev.interop.example.com` to the development account.
+- We use a custom portal ["Selfcare"](https://www.pagopa.it/it/termini-condizioni-area-riservata/) developed by PagoPA to manage users access to the PDND Interop platform, and there are many references to this portal in the code.
+    - An alternative solution is required to handle users access 
