@@ -1,14 +1,14 @@
-# PDND Interop Infrastructure
+# PDND Interoperability Infrastructure
 
 ## Introduction
 
-This repository contains the Terraform implementation (on AWS) for the PDND Interop infrastructure.
+This repository contains the Terraform implementation (on AWS) for the PDND Interoperability infrastructure.
 
 About the project:
 
-[PDND Interop landing page](https://interop.pagopa.it)
+[PDND Interoperability landing page](https://interop.pagopa.it)
 
-[Developer Portal](https://developer.pagopa.it/pdnd-interoperabilita/overview)
+[Operating Manual](https://developer.pagopa.it/pdnd-interoperabilita/guides/PDND-Interoperability-Operating-Manual)
 
 ## Required tools
 
@@ -113,3 +113,9 @@ This implementation may require some changes to work on your account:
     - For example: `interop.example.com` is delegated to the production account, which then delegates `dev.interop.example.com` to the development account.
 - We use a custom portal ["Selfcare"](https://www.pagopa.it/it/termini-condizioni-area-riservata/) developed by PagoPA to manage users access to the PDND Interop platform, and there are many references to this portal in the code.
     - An alternative solution is required to handle users access 
+
+## Licensing
+
+This project is licensed under the terms of the **Mozilla Public License Version 2.0 (MPL-2.0)**.
+The full text of the license can be found in the [LICENSE](LICENSE) file.
+Please see the [AUTHORS](AUTHORS) file for the copyright notice.
