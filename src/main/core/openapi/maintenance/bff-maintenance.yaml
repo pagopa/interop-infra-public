@@ -1,0 +1,36 @@
+openapi: "3.0.3"
+info:
+  title: "BFF API in Maintenance mode"
+  description: BFF API in Maintenance mode
+  version: "1.0.0"
+paths:
+  /:
+    tags:
+      - api
+      - maintenance
+    x-amazon-apigateway-any-method:
+      responses:
+        '503':
+          description: "Service Unavailable"
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: '{"statusCode" : 503}'
+        responses:
+          default:
+            statusCode: "503"
+  /{proxy+}:
+    tags:
+      - api
+      - maintenance
+    x-amazon-apigateway-any-method:
+      responses:
+        '503':
+          description: "Service Unavailable"
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: '{"statusCode" : 503}'
+        responses:
+          default:
+            statusCode: "503"

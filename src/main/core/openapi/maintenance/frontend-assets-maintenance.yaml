@@ -1,0 +1,140 @@
+openapi: "3.0.3"
+info:
+  title: "Frontend assets API in Maintenance mode"
+  description: Frontend assets API in Maintenance mode
+  version: "1.0.0"
+paths:
+  /:
+    x-amazon-apigateway-any-method:
+      tags:
+        - maintenance
+      responses:
+        '302':
+          description: "Moved Temporarily"
+          headers:
+            Location:
+              schema:
+                type: string
+                example: '/maintenance-standard.html'
+      x-amazon-apigateway-integration:
+        type: mock
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        responses:
+          '302':
+            statusCode: '302'
+            responseParameters:
+              method.response.header.Location: "'/maintenance-standard.html'"
+        requestTemplates:
+          application/json: '{"statusCode": 302}'
+  /{proxy+}:
+    x-amazon-apigateway-any-method:
+      tags:
+        - maintenance
+      responses:
+        '302':
+          description: "Moved Temporarily"
+          headers:
+            Location:
+              schema:
+                type: string
+                example: '/maintenance-standard.html'
+      x-amazon-apigateway-integration:
+        type: mock
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        responses:
+          '302':
+            statusCode: '302'
+            responseParameters:
+              method.response.header.Location: "'/maintenance-standard.html'"
+        requestTemplates:
+          application/json: '{"statusCode": 302}'
+  /maintenance-standard.html:
+    get:
+      tags:
+        - page
+        - maintenance
+      summary: Get maintenance page
+      description: Returns a maintenance page when the API Gateway is in maintenance mode.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $FrontendAdditionalAssetsS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        responses:
+          '':
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500
+  /style.css:
+    get:
+      tags:
+        - page
+        - maintenance
+      summary: Get maintenance page
+      description: Returns a maintenance page when the API Gateway is in maintenance mode.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: string
+            Content-Type:
+              schema:
+                type: string
+            Timestamp:
+              schema:
+                type: string
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal Server Error
+      x-amazon-apigateway-integration:
+        type: aws
+        httpMethod: GET
+        passthroughBehavior: when_no_match
+        connectionType: INTERNET
+        uri: $FrontendAdditionalAssetsS3BucketARN
+        credentials: $FrontendAdditionalAssetsRoleARN
+        responses:
+          '':
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Length: "integration.response.header.Content-Length"
+              method.response.header.Content-Type: "integration.response.header.Content-Type"
+              method.response.header.Timestamp: "integration.response.header.Date"
+          '403':
+            statusCode: 404
+            responseTemplates:
+              application/xml: "#set($inputRoot = $input.path('$'))"
+          '5\\d{2}':
+            statusCode: 500

@@ -85,12 +85,21 @@ module "example" {
 
 The project should be deployed in the following order:
 
+0. Before deploying any state, reset the values inside the files in `env/` since most of those values will be different for you.
+    - a list of variables and their description can be found in `98-variables.tf` in each state.
+    - some variables have already been reset (e.g. Github repos names, to avoid giving unintended permissions to our repos)
 1. `init` state to setup the remote state resources.
-    - after the resources are ready, set the appropriate TF backend values in `env/ENV_NAME/backend.tfvars` for all the states
+    - after the resources are ready, set the appropriate TF backend values in `env/*/backend.tfvars` for all the states
 2. `core` state
 3. `k8s` state
 4. (optional) `analytics` state
 5. (optional) `analytics-quicksight` state
+
+To deploy a state:
+```bash
+cd src/main/core
+./terraform.sh apply <env> # substitute with the desired environment
+```
 
 ## Notes about reuse
 

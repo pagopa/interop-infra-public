@@ -1,0 +1,1151 @@
+{
+  "Dashboard": {
+    "DashboardId": "interop-dev-producer_perspective_001_DASH",
+    "Arn": "arn:aws:quicksight:eu-south-1:505630707203:dashboard/interop-dev-producer_perspective_001_DASH",
+    "Name": "Producer Perspective 001 (interop-dev)",
+    "Version": {
+      "CreatedTime": "2025-09-22T12:35:58.939000+02:00",
+      "Errors": [],
+      "VersionNumber": 6,
+      "Status": "CREATION_SUCCESSFUL",
+      "DataSetArns": [
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_daily_calls_overbooking__by_eservice",
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_avg_first_token_delta_by_eservice__final",
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_eservice_not_used_after_ts__last_issued_at",
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+        "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_02_eservice_without_token__final"
+      ],
+      "Sheets": [
+        {
+          "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_52cd9ad3-d6d6-4801-bfd8-e5225a18d386",
+          "Name": "Summary of whole eservice history"
+        },
+        {
+          "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_1180f933-1ef3-450f-a7ed-227fbb3296f0",
+          "Name": "Current e-service overbooking"
+        },
+        {
+          "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_ce18fec0-9b00-4b15-8bb3-9b7257645531",
+          "Name": "e-service not used after a given date"
+        }
+      ]
+    },
+    "CreatedTime": "2025-09-22T09:42:53.785000+02:00",
+    "LastPublishedTime": "2025-09-22T12:36:06.347000+02:00",
+    "LastUpdatedTime": "2025-09-22T12:35:58.939000+02:00"
+  },
+  "Definition": {
+    "DataSetIdentifierDeclarations": [
+      {
+        "Identifier": "mv_01_daily_calls_overbooking__by_eservice",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_daily_calls_overbooking__by_eservice"
+      },
+      {
+        "Identifier": "mv_01_avg_first_token_delta_by_eservice__final",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_avg_first_token_delta_by_eservice__final"
+      },
+      {
+        "Identifier": "mv_01_eservice_not_used_after_ts__last_issued_at",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_eservice_not_used_after_ts__last_issued_at"
+      },
+      {
+        "Identifier": "mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_01_daily_calls_overbooking__by_eservice_and_consumer"
+      },
+      {
+        "Identifier": "mv_02_eservice_without_token__final",
+        "DataSetArn": "arn:aws:quicksight:eu-south-1:505630707203:dataset/interop-dev-views-mv_02_eservice_without_token__final"
+      }
+    ],
+    "Sheets": [
+      {
+        "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_52cd9ad3-d6d6-4801-bfd8-e5225a18d386",
+        "Name": "Summary of whole eservice history",
+        "Visuals": [
+          {
+            "TableVisual": {
+              "VisualId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_abb0786f-4c00-463a-82b6-aca7fd74cf1b",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Exposed and never used e-service, grouped by e-service owner</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.producer_name.0.1751537050378",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_eservice_without_token__final",
+                            "ColumnName": "producer_name"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.exposed_eservice__count.1.1751537061954",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_eservice_without_token__final",
+                            "ColumnName": "exposed_eservice__count"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.eservice_not_used_by_others__count.2.1751537065146",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_eservice_without_token__final",
+                            "ColumnName": "eservice_not_used_by_others__count"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.eservice_not_used_by_others__percent.3.1751537073266",
+                          "Column": {
+                            "DataSetIdentifier": "mv_02_eservice_without_token__final",
+                            "ColumnName": "eservice_not_used_by_others__percent"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": []
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.eservice_not_used_by_others__percent.3.1751537073266",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ]
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.producer_name.0.1751537050378",
+                      "CustomLabel": "E-service exposer"
+                    },
+                    {
+                      "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.exposed_eservice__count.1.1751537061954",
+                      "CustomLabel": "Exposed e-service quantity"
+                    },
+                    {
+                      "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.eservice_not_used_by_others__count.2.1751537065146",
+                      "CustomLabel": "Exposed, not used, e-service"
+                    },
+                    {
+                      "FieldId": "688cc34b-bae6-43b2-acd4-45120a95165f.eservice_not_used_by_others__percent.3.1751537073266",
+                      "CustomLabel": "% not used e-service"
+                    }
+                  ]
+                }
+              },
+              "Actions": []
+            }
+          },
+          {
+            "TableVisual": {
+              "VisualId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3a3521bf-f3b9-417c-94b6-b8cf7f3cace9",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Worst agreement approval time for each e-service producer</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.producer_name.0.1751537543546",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+                            "ColumnName": "producer_name"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.eservice_id.2.1751537571912",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+                            "ColumnName": "eservice_id"
+                          },
+                          "AggregationFunction": "COUNT"
+                        }
+                      },
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "45604f4f-3aa3-41ab-a797-ed7b115b71bd.3.1751547423444",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+                            "ColumnName": "FormattedMaxTimeInterval"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "45604f4f-3aa3-41ab-a797-ed7b115b71bd.3.1751547423444",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ]
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 25
+                  },
+                  "CellStyle": {
+                    "Height": 25
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.producer_name.0.1751537543546",
+                      "Width": "206px",
+                      "CustomLabel": "E-service owner"
+                    },
+                    {
+                      "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.eservice_id.2.1751537571912",
+                      "CustomLabel": "Used e-service"
+                    },
+                    {
+                      "FieldId": "45604f4f-3aa3-41ab-a797-ed7b115b71bd.3.1751547423444",
+                      "Width": "289px",
+                      "CustomLabel": "Worst e-service average approval time "
+                    }
+                  ]
+                }
+              },
+              "Actions": [
+                {
+                  "CustomActionId": "b0f5a69a-50eb-450e-a8d0-ef43fa050e1a",
+                  "Name": "Filter on child",
+                  "Status": "ENABLED",
+                  "Trigger": "DATA_POINT_CLICK",
+                  "ActionOperations": [
+                    {
+                      "FilterOperation": {
+                        "SelectedFieldsConfiguration": {
+                          "SelectedFields": [
+                            "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.producer_name.0.1751537543546"
+                          ]
+                        },
+                        "TargetVisualsConfiguration": {
+                          "SameSheetTargetVisualConfiguration": {
+                            "TargetVisuals": [
+                              "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_6036eae2-f549-407b-81c0-c39310bc1ce1"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "TableVisual": {
+              "VisualId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_6036eae2-f549-407b-81c0-c39310bc1ce1",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>Agreement approval time average by single e-service</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.producer_name.0.1751538334336",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+                            "ColumnName": "producer_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.eservice_id.1.1751538342430",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+                            "ColumnName": "eservice_id"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.num_of_agreement.2.1751538345150",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+                            "ColumnName": "num_of_agreement"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "45604f4f-3aa3-41ab-a797-ed7b115b71bd.4.1751547489558",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+                            "ColumnName": "FormattedMaxTimeInterval"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "45604f4f-3aa3-41ab-a797-ed7b115b71bd.4.1751547489558",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ]
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 25
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.producer_name.0.1751538334336",
+                      "CustomLabel": "E-service owner"
+                    },
+                    {
+                      "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.eservice_id.1.1751538342430",
+                      "Width": "265px",
+                      "CustomLabel": "Eservice id"
+                    },
+                    {
+                      "FieldId": "a52e83e0-cd4d-4c3a-b9e3-5d2d0f052af4.num_of_agreement.2.1751538345150",
+                      "Width": "97px",
+                      "CustomLabel": "Agreements"
+                    },
+                    {
+                      "FieldId": "45604f4f-3aa3-41ab-a797-ed7b115b71bd.4.1751547489558",
+                      "Width": "279px",
+                      "CustomLabel": "Average approval time"
+                    }
+                  ]
+                }
+              },
+              "Actions": []
+            }
+          }
+        ],
+        "TextBoxes": [
+          {
+            "SheetTextBoxId": "44f20168-310f-40aa-ac51-9e895ab2b6df",
+            "Content": "<text-box>\n  <br/>\n  <inline font-size=\"24px\">Waiting time for agreement approval</inline>\n</text-box>"
+          },
+          {
+            "SheetTextBoxId": "251916e5-5a80-437c-9602-3af1ed6a5093",
+            "Content": "<text-box>\n  <br/>\n  <inline font-size=\"24px\">Never used e-service</inline>\n</text-box>"
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "251916e5-5a80-437c-9602-3af1ed6a5093",
+                    "ElementType": "TEXT_BOX",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 18,
+                    "RowIndex": 0,
+                    "RowSpan": 2
+                  },
+                  {
+                    "ElementId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_abb0786f-4c00-463a-82b6-aca7fd74cf1b",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 18,
+                    "RowIndex": 2,
+                    "RowSpan": 7
+                  },
+                  {
+                    "ElementId": "44f20168-310f-40aa-ac51-9e895ab2b6df",
+                    "ElementType": "TEXT_BOX",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 9,
+                    "RowSpan": 2
+                  },
+                  {
+                    "ElementId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3a3521bf-f3b9-417c-94b6-b8cf7f3cace9",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 15,
+                    "RowIndex": 11,
+                    "RowSpan": 20
+                  },
+                  {
+                    "ElementId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_6036eae2-f549-407b-81c0-c39310bc1ce1",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 15,
+                    "ColumnSpan": 21,
+                    "RowIndex": 11,
+                    "RowSpan": 20
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_1180f933-1ef3-450f-a7ed-227fbb3296f0",
+        "Name": "Current e-service overbooking",
+        "ParameterControls": [
+          {
+            "TextField": {
+              "ParameterControlId": "879a39d7-8d4a-4b1d-8a3b-1510ec209e0a",
+              "Title": "e-service owner name (partial match)",
+              "SourceParameterName": "OverbookingProducerNameInclude",
+              "DisplayOptions": {
+                "TitleOptions": {
+                  "Visibility": "VISIBLE",
+                  "FontConfiguration": {
+                    "FontSize": {
+                      "Relative": "MEDIUM"
+                    }
+                  }
+                },
+                "PlaceholderOptions": {
+                  "Visibility": "VISIBLE"
+                },
+                "InfoIconLabelOptions": {
+                  "Visibility": "HIDDEN"
+                }
+              }
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "TableVisual": {
+              "VisualId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3b617d93-9db2-4f52-be9b-1b60b47455fc",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\"purposes\" granted calls by day  Vs   maximum declared calls by day</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Select one row to filter the table below</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.producer_name.0.1751560629902",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice",
+                            "ColumnName": "producer_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.eservice_name.1.1751560643900",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice",
+                            "ColumnName": "eservice_name"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.eservice_declared_daily_calls_total.2.1751561686182",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice",
+                            "ColumnName": "eservice_declared_daily_calls_total"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.consumers_declared_daily_calls_sum.3.1751561689298",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice",
+                            "ColumnName": "consumers_declared_daily_calls_sum"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.total_booked_percentage.4.1751561692249",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice",
+                            "ColumnName": "total_booked_percentage"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.eservice_id.5.1751561704600",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice",
+                            "ColumnName": "eservice_id"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": []
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.total_booked_percentage.4.1751561692249",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ],
+                  "PaginationConfiguration": {
+                    "PageSize": 100,
+                    "PageNumber": 1
+                  }
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 100
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.producer_name.0.1751560629902",
+                      "Width": "300px",
+                      "CustomLabel": "Producer name"
+                    },
+                    {
+                      "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.eservice_name.1.1751560643900",
+                      "Width": "459px",
+                      "CustomLabel": "E-service name"
+                    },
+                    {
+                      "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.eservice_declared_daily_calls_total.2.1751561686182",
+                      "Width": "126px",
+                      "CustomLabel": "E-service declared max daily calls"
+                    },
+                    {
+                      "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.consumers_declared_daily_calls_sum.3.1751561689298",
+                      "Width": "157px",
+                      "CustomLabel": "Sum of daily calls granted to purposes"
+                    },
+                    {
+                      "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.total_booked_percentage.4.1751561692249",
+                      "Width": "111px",
+                      "CustomLabel": "Granted Vs declared maximum ratio (%)"
+                    },
+                    {
+                      "FieldId": "36eae221-28a7-4fde-8658-487530ca19f0.eservice_id.5.1751561704600",
+                      "Width": "344px",
+                      "CustomLabel": "E-service id"
+                    }
+                  ]
+                }
+              },
+              "Actions": [
+                {
+                  "CustomActionId": "28a05f5e-3bd0-461c-a6b7-3c28bc17d878",
+                  "Name": "Action 1",
+                  "Status": "ENABLED",
+                  "Trigger": "DATA_POINT_CLICK",
+                  "ActionOperations": [
+                    {
+                      "FilterOperation": {
+                        "SelectedFieldsConfiguration": {
+                          "SelectedFields": [
+                            "36eae221-28a7-4fde-8658-487530ca19f0.producer_name.0.1751560629902",
+                            "36eae221-28a7-4fde-8658-487530ca19f0.eservice_name.1.1751560643900"
+                          ]
+                        },
+                        "TargetVisualsConfiguration": {
+                          "SameSheetTargetVisualConfiguration": {
+                            "TargetVisuals": [
+                              "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3660d72a-2105-4f01-abe9-dff81d0583bc"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "TableVisual": {
+              "VisualId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3660d72a-2105-4f01-abe9-dff81d0583bc",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>List of calls granted to each consumer tenant</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.producer_name.0.1751560955721",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+                            "ColumnName": "producer_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.eservice_name.1.1751560959272",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+                            "ColumnName": "eservice_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.consumer_name.2.1751560968647",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+                            "ColumnName": "consumer_name"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.eservice_declared_calls_per_consumer.4.1751560997126",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+                            "ColumnName": "eservice_declared_calls_per_consumer"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.consumers_declared_daily_calls_sum.5.1751560998127",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+                            "ColumnName": "consumers_declared_daily_calls_sum"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalDimensionField": {
+                          "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.consumer_booked_percentage.5.1751561278840",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+                            "ColumnName": "consumer_booked_percentage"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": []
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.consumer_booked_percentage.5.1751561278840",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ]
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 50
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.producer_name.0.1751560955721",
+                      "Width": "304px",
+                      "CustomLabel": "Producer name"
+                    },
+                    {
+                      "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.eservice_name.1.1751560959272",
+                      "Width": "451px",
+                      "CustomLabel": "E-service name"
+                    },
+                    {
+                      "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.consumer_name.2.1751560968647",
+                      "Width": "219px",
+                      "CustomLabel": "Consumer name"
+                    },
+                    {
+                      "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.eservice_declared_calls_per_consumer.4.1751560997126",
+                      "Width": "108px",
+                      "CustomLabel": "Calls by day grented to consumer"
+                    },
+                    {
+                      "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.consumers_declared_daily_calls_sum.5.1751560998127",
+                      "Width": "186px",
+                      "CustomLabel": "Sum of granted calls by day"
+                    },
+                    {
+                      "FieldId": "6274f68c-3b2c-4f7f-bf30-f8ce05f6df72.consumer_booked_percentage.5.1751561278840",
+                      "Width": "157px",
+                      "CustomLabel": "%"
+                    }
+                  ]
+                }
+              },
+              "Actions": []
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3b617d93-9db2-4f52-be9b-1b60b47455fc",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 0,
+                    "RowSpan": 14
+                  },
+                  {
+                    "ElementId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3660d72a-2105-4f01-abe9-dff81d0583bc",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 14,
+                    "RowSpan": 14
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "879a39d7-8d4a-4b1d-8a3b-1510ec209e0a",
+                    "ElementType": "PARAMETER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_ce18fec0-9b00-4b15-8bb3-9b7257645531",
+        "Name": "e-service not used after a given date",
+        "ParameterControls": [
+          {
+            "DateTimePicker": {
+              "ParameterControlId": "1a453c80-3825-43b2-a223-3220ab9b2d34",
+              "Title": "List e-service without token after",
+              "SourceParameterName": "noTokenIssuedAfter",
+              "DisplayOptions": {
+                "TitleOptions": {
+                  "Visibility": "VISIBLE",
+                  "FontConfiguration": {
+                    "FontSize": {
+                      "Relative": "MEDIUM"
+                    }
+                  }
+                },
+                "DateTimeFormat": "YYYY/MM/DD HH:mm:ss",
+                "InfoIconLabelOptions": {
+                  "Visibility": "HIDDEN"
+                }
+              }
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "TableVisual": {
+              "VisualId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_484e2b03-cd22-4cca-9660-e62969e6ee3a",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  Last e-service usage previous to \n  <parameter>${noTokenIssuedAfter}</parameter>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE"
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "1be48d1c-8a82-4ba9-89fa-c668d9818e47.producer_name.0.1751562624014",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_eservice_not_used_after_ts__last_issued_at",
+                            "ColumnName": "producer_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "1be48d1c-8a82-4ba9-89fa-c668d9818e47.eservice_name.1.1751562628067",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_eservice_not_used_after_ts__last_issued_at",
+                            "ColumnName": "eservice_name"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "073ec84b-fff8-442c-8a4b-b036b4c09fa4.3.1751562799398",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_eservice_not_used_after_ts__last_issued_at",
+                            "ColumnName": "lastIssuedAt_Display"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "1be48d1c-8a82-4ba9-89fa-c668d9818e47.eservice_id.2.1751562630715",
+                          "Column": {
+                            "DataSetIdentifier": "mv_01_eservice_not_used_after_ts__last_issued_at",
+                            "ColumnName": "eservice_id"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": []
+                  }
+                },
+                "SortConfiguration": {
+                  "RowSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "073ec84b-fff8-442c-8a4b-b036b4c09fa4.3.1751562799398",
+                        "Direction": "ASC"
+                      }
+                    }
+                  ],
+                  "PaginationConfiguration": {
+                    "PageSize": 100,
+                    "PageNumber": 1
+                  }
+                },
+                "TableOptions": {
+                  "HeaderStyle": {
+                    "TextWrap": "WRAP",
+                    "Height": 75
+                  }
+                },
+                "FieldOptions": {
+                  "SelectedFieldOptions": [
+                    {
+                      "FieldId": "1be48d1c-8a82-4ba9-89fa-c668d9818e47.producer_name.0.1751562624014",
+                      "Width": "361px",
+                      "CustomLabel": "Producer name"
+                    },
+                    {
+                      "FieldId": "1be48d1c-8a82-4ba9-89fa-c668d9818e47.eservice_name.1.1751562628067",
+                      "Width": "370px",
+                      "CustomLabel": "E-service name"
+                    },
+                    {
+                      "FieldId": "073ec84b-fff8-442c-8a4b-b036b4c09fa4.3.1751562799398",
+                      "Width": "281px",
+                      "CustomLabel": "Last token previous to <<$noTokenIssuedAfter>>"
+                    },
+                    {
+                      "FieldId": "1be48d1c-8a82-4ba9-89fa-c668d9818e47.eservice_id.2.1751562630715",
+                      "Width": "406px",
+                      "CustomLabel": "E-service id "
+                    }
+                  ]
+                }
+              },
+              "Actions": []
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_484e2b03-cd22-4cca-9660-e62969e6ee3a",
+                    "ElementType": "VISUAL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 36,
+                    "RowIndex": 0,
+                    "RowSpan": 21
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "ResizeOption": "FIXED",
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "1a453c80-3825-43b2-a223-3220ab9b2d34",
+                    "ElementType": "PARAMETER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      }
+    ],
+    "CalculatedFields": [
+      {
+        "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+        "Name": "FormattedMaxTimeInterval",
+        "Expression": "concat(\n  toString(decimalToInt(floor( MaxTimeInterval / (3600*24)    ))),\n  ' giorni,  ',\n  ifelse( (MaxTimeInterval % (3600*24)) / 3600 < 10, '0', ''),\n  toString(decimalToInt(floor( (MaxTimeInterval % (3600*24)) / 3600     ))),\n  ' ore,  ',\n  ifelse( (MaxTimeInterval % 3600) / 60 < 10, '0', ''),\n  toString(decimalToInt(floor( (MaxTimeInterval % 3600) / 60  ))),\n  ' minuti,  ',\n  ifelse( MaxTimeInterval % 60 < 10, '0', ''),\n  toString(decimalToInt(floor( MaxTimeInterval % 60           ))),\n  ' secondi'\n)\n"
+      },
+      {
+        "DataSetIdentifier": "mv_01_avg_first_token_delta_by_eservice__final",
+        "Name": "MaxTimeInterval",
+        "Expression": "max( {avg_first_token_delta_time__seconds} )"
+      },
+      {
+        "DataSetIdentifier": "mv_01_eservice_not_used_after_ts__last_issued_at",
+        "Name": "lastIssuedAt_Display",
+        "Expression": "ifelse( {last_issued_at} < 0, 'Mai token staccati', toString({last_issued_at_ts}) )"
+      }
+    ],
+    "ParameterDeclarations": [
+      {
+        "StringParameterDeclaration": {
+          "ParameterValueType": "SINGLE_VALUED",
+          "Name": "OverbookingProducerNameInclude",
+          "DefaultValues": {
+            "StaticValues": []
+          },
+          "ValueWhenUnset": {
+            "ValueWhenUnsetOption": "NULL"
+          }
+        }
+      },
+      {
+        "DateTimeParameterDeclaration": {
+          "Name": "noTokenIssuedAfter",
+          "DefaultValues": {
+            "StaticValues": [],
+            "RollingDate": {
+              "Expression": "addDateTime(-3, 'DD', truncDate('DD', now()))"
+            }
+          },
+          "TimeGranularity": "DAY"
+        }
+      }
+    ],
+    "FilterGroups": [
+      {
+        "FilterGroupId": "18a3fcf1-ca02-4799-b385-b1e1b5032289",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "626380da-ebaa-4776-87e6-0a0ab765334a",
+              "Column": {
+                "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice_and_consumer",
+                "ColumnName": "producer_name"
+              },
+              "Configuration": {
+                "CustomFilterConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "ParameterName": "OverbookingProducerNameInclude",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_1180f933-1ef3-450f-a7ed-227fbb3296f0",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3660d72a-2105-4f01-abe9-dff81d0583bc"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "e090e538-4520-42a1-8c40-3c159c24fd65",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "b8ed2153-6ca7-412d-9cd9-2e46acd0ef43",
+              "Column": {
+                "DataSetIdentifier": "mv_01_daily_calls_overbooking__by_eservice",
+                "ColumnName": "producer_name"
+              },
+              "Configuration": {
+                "CustomFilterConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "ParameterName": "OverbookingProducerNameInclude",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_1180f933-1ef3-450f-a7ed-227fbb3296f0",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_3b617d93-9db2-4f52-be9b-1b60b47455fc"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "65afcdbe-54fb-4e8b-a1d2-60616a184cd9",
+        "Filters": [
+          {
+            "TimeRangeFilter": {
+              "FilterId": "6dd6d2ee-08ff-4ef7-a91b-295d4d7fbaf0",
+              "Column": {
+                "DataSetIdentifier": "mv_01_eservice_not_used_after_ts__last_issued_at",
+                "ColumnName": "last_issued_at_ts"
+              },
+              "IncludeMaximum": false,
+              "RangeMaximumValue": {
+                "Parameter": "noTokenIssuedAfter"
+              },
+              "NullOption": "NON_NULLS_ONLY",
+              "TimeGranularity": "DAY"
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "SelectedSheets": {
+            "SheetVisualScopingConfigurations": [
+              {
+                "SheetId": "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_ce18fec0-9b00-4b15-8bb3-9b7257645531",
+                "Scope": "SELECTED_VISUALS",
+                "VisualIds": [
+                  "98cd6bc7-1759-4e24-b34f-f5e8cd20d324_484e2b03-cd22-4cca-9660-e62969e6ee3a"
+                ]
+              }
+            ]
+          }
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      }
+    ],
+    "AnalysisDefaults": {
+      "DefaultNewSheetConfiguration": {
+        "InteractiveLayoutConfiguration": {
+          "Grid": {
+            "CanvasSizeOptions": {
+              "ScreenCanvasSizeOptions": {
+                "ResizeOption": "FIXED",
+                "OptimizedViewPortWidth": "1600px"
+              }
+            }
+          }
+        },
+        "SheetContentType": "INTERACTIVE"
+      }
+    }
+  },
+  "Permissions": [],
+  "Tags": []
+}

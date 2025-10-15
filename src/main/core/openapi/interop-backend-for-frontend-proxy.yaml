@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: Backend for Frontend Micro Service in proxy mode
+  description: Interop BFF implementation in proxy mode
+  version: '{{version}}'
+  contact:
+    name: API Support
+    url: 'http://www.example.com/support'
+    email: support@example.com
+  termsOfService: 'http://swagger.io/terms/'
+  x-api-id: an x-api-id
+  x-summary: an x-summary
+servers:
+  - url: '/backend-for-frontend/{{version}}'
+    description: This service is the Interop BFF
+security:
+  - bearerAuth: []
+tags:
+  - name: authorization
+    description: Implements authorization
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: selfcare
+    description: Selfcare Module
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: attributes
+    description: Attribute Module
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: agreements
+    description: Attribute Module
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: eservices
+    description: EService Module
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: purposes
+    description: Purpose Module
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: tenants
+    description: Tenant Module
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: tools
+    description: Utility Module
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: support
+    description: Support
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'    
+  - name: health
+    description: Verify service status
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+paths:
+  /{proxy+}:
+    tags:
+      - bff
+    x-amazon-apigateway-any-method:
+      parameters:
+        - name: proxy
+          in: path
+          required: true
+          schema:
+            type: string

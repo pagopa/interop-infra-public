@@ -1,0 +1,28 @@
+{
+  "jsonpaths": [
+    "$.jwtId",
+    "$.issuedAt",
+    "$.clientId",
+    "$.organizationId",
+    "$.agreementId",
+    "$.eserviceId",
+    "$.descriptorId",
+    "$.purposeId",
+    "$.purposeVersionId",
+    "$.algorithm",
+    "$.keyId",
+    "$.audience",
+    "$.subject",
+    "$.notBefore",
+    "$.expirationTime",
+    "$.issuer",
+    "$.clientAssertion.jwtId",
+    "$.clientAssertion.issuedAt",
+    "$.clientAssertion.algorithm",
+    "$.clientAssertion.keyId",
+    "$.clientAssertion.issuer",
+    "$.clientAssertion.subject",
+    "$.clientAssertion.audience",
+    "$.clientAssertion.expirationTime"
+  ]
+}
