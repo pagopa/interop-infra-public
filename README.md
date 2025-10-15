@@ -111,7 +111,7 @@ This implementation may require some changes to work on your account:
     - AWS users access must be implemented separately
 - A DNS domain can be delegated to the production AWS account, which may delegate (not mandatory) "environment subdomains" to other accounts.
     - For example: `interop.example.com` is delegated to the production account, which then delegates `dev.interop.example.com` to the development account.
-- We use a custom portal ["Selfcare"](https://www.pagopa.it/it/termini-condizioni-area-riservata/) developed by PagoPA to manage users access to the PDND Interop platform, and there are many references to this portal in the code.
+- We use a custom portal [Selfcare](https://www.pagopa.it/it/termini-condizioni-area-riservata/) developed by PagoPA to manage users access to the PDND Interop platform, and there are many references to this portal in the code.
     - An alternative solution is required to handle users access 
 
 ## Licensing
