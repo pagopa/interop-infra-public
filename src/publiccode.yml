@@ -1,0 +1,95 @@
+publiccodeYmlVersion: 0.5.0
+name: PDND Interoperability Infrastructure
+url: https://github.com/pagopa/interop-infra-public
+landingURL: https://www.interop.pagopa.it
+platforms:
+  - web
+categories:
+  - application-development
+  - communications
+organisation:
+  uri: https://innovazione.gov.it/
+fundedBy:
+  - name: Presidenza del Consiglio dei Ministri - Dipartimento per la Trasformazione
+      Digitale
+    uri: https://innovazione.gov.it/
+developmentStatus: stable
+softwareType: standalone/web
+description:
+  it:
+    localisedName: Infrastruttura di interoperabilità PDND
+    shortDescription: La Piattaforma Digitale Nazionale Dati (PDND) è
+      l'infrastruttura di interoperabilità definita nell'Art. 50-ter del CAD
+    longDescription: >
+      La *Piattaforma Digitale Nazionale Dati (PDND)*, definita nell'art. 50-ter
+      del CAD,  è parte dell’ecosistema interoperabilità ed è lo strumento per
+      *gestire l’autenticazione, l’autorizzazione e il tracciamento dei soggetti
+      abilitati per garantire la sicurezza delle informazioni*. Fornisce un
+      insieme di regole condivise per *semplificare gli accordi di
+      interoperabilità* snellendo i processi di istruttoria, riducendo oneri e
+      procedure amministrative.
+
+
+      PDND, inoltre, mette a disposizione il *Catalogo API*, che espone tutti
+      gli e-service pubblicati dagli enti e tramite cui è possibile effettuare
+      la richiesta di fruizione dati e successivamente integrare i propri
+      servizi per i cittadini.
+
+
+      La finalità della piattaforma è la totale interoperabilità dei dataset e
+      dei servizi chiave tra le PA centrali e locali, che consentirà di
+      *realizzare il principio “once-only”* (la PA non deve chiedere a cittadini
+      e imprese dati che già possiede) e di *valorizzare il capitale
+      informativo* delle pubbliche amministrazioni.
+
+
+      La piattaforma offre numerosi vantaggi agli utenti:
+
+
+      *  Gli *erogatori*, che rendono disponibili e-service per l’accesso ai
+      loro dati, hanno garantita la sicurezza dello scambio di dati e una
+      standardizzazione dei processi
+
+      *I *fruitori* accedono al catalogo degli e-service disponibili e possono
+      integrare le API nei loro servizi a cittadini e imprese
+
+      * I *tecnici sviluppatori*, che implementano e gestiscono il ciclo di vita
+      degli e-service di un’amministrazione, possono fare integrazioni standard
+      grazie alla piattaforma
+
+      * I *responsabili della protezione dei dati* degli Enti aderenti possono
+      accedere a documenti amministrativi standard e garantire un processo
+      uniforme per tutti gli enti
+
+      * *Imprese* e *cittadini* possono veder realizzato il principio del
+      once-only, evitando di dover fornire informazioni già comunicate in
+      precedenza alla PA
+    documentation: https://docs.pagopa.it/interoperabilita-1
+    apiDocumentation: https://docs.pagopa.it/interoperabilita-1/manuale-operativo/api-esposte-da-pdnd-interoperabilita
+    features:
+      - autenticazione
+      - accordi di fruizione
+      - finalità
+      - analisi del rischio
+      - autorizzazione
+legal:
+  license: MPL-2.0
+maintenance:
+  type: contract
+  contractors:
+    - name: PagoPA SpA
+      until: 2999-12-31
+      email: info@pagopa.it
+      website: https://www.pagopa.it
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - it-IT
+IT:
+  countryExtensionVersion: "1.0"
+  piattaforme:
+    spid: true
+    cie: true
+    anpr: false
+    pagopa: false
+    io: false
