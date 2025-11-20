@@ -8,7 +8,7 @@ categories:
   - application-development
   - communications
 organisation:
-  uri: https://innovazione.gov.it/
+  uri: urn:x-italian-pa:pcm
 fundedBy:
   - name: Presidenza del Consiglio dei Ministri - Dipartimento per la Trasformazione
       Digitale
@@ -74,6 +74,8 @@ description:
       - autorizzazione
 legal:
   license: MPL-2.0
+  mainCopyrightOwner: Dipartimento per la Trasformazione Digitale - Presidenza del
+    Consiglio dei Ministri
 maintenance:
   type: contract
   contractors:
