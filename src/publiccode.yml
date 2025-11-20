@@ -85,7 +85,7 @@ localisation:
   localisationReady: false
   availableLanguages:
     - it-IT
-IT:
+it:
   countryExtensionVersion: "1.0"
   piattaforme:
     spid: true
