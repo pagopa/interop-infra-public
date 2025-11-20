@@ -79,7 +79,7 @@ maintenance:
   contractors:
     - name: PagoPA SpA
       until: 2999-12-31
-      email: info@pagopa.it
+      email: ospo@pagopa.it
       website: https://www.pagopa.it
 localisation:
   localisationReady: false
