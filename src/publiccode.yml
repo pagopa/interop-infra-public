@@ -72,6 +72,57 @@ description:
       - finalità
       - analisi del rischio
       - autorizzazione
+  en:
+    localisedName: Interoperability Infrastructure – PDND
+    shortDescription: "Interoperability Infrastructure: The National Digital Data
+      Platform - PDND."
+    longDescription: >-
+      The *National Digital Data Platform (PDND)*, established under Article
+      50-ter of the Italian Digital Administration Code (CAD),  is a core
+      component of the national interoperability ecosystem. It provides the
+      mechanisms for *managing authentication, authorisation and logging of
+      authorised entities, ensuring the security and integrity of information
+      exchanges*. The platform defines a set of shared rules aimed at
+      *streamlining interoperability agreements*, reducing administrative
+      burdens and simplifying procedural workflows.
+
+      PDND also provides the *API Catalogue*, which lists all e-services
+      published by public entities and through which data-access requests can be
+      submitted and, subsequently, APIs can be integrated into services
+      delivered to citizens.
+
+      The overarching objective of the platform is to ensure full
+      interoperability of datasets and key services across central and local
+      public administrations, enabling the implementation of the *once-only
+      principle* (public authorities must not request data already held by
+      another administration) and fostering the * valorisation of the public
+      sector’s information assets*.
+
+      The platform offers several advantages to its users:
+
+      * * Providers*, who make their e-services available for data access,
+      benefit from secure data exchange and standardised processes.
+
+      * *Consumers* can access the catalogue of available e-services and
+      integrate APIs into their services for citizens and businesses.
+
+      * * Technical developers*, responsible for implementing and managing the
+      lifecycle of an administration’s e-services, can rely on standardised
+      integration models enabled by the platform.
+
+      * * Data Protection Officers* of participating entities can access
+      standard administrative documentation and ensure a consistent and
+      compliant process across all administrations.
+
+      * *Business* and *citizens* benefit from the implementation of the
+      once-only principle, avoiding the need to resubmit information already
+      provided to the public administration.
+    features:
+      - authentication
+      - access agreements
+      - purposes
+      - risk assessment
+      - authorisation
 legal:
   license: MPL-2.0
   mainCopyrightOwner: Dipartimento per la Trasformazione Digitale - Presidenza del
