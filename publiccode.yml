@@ -9,11 +9,11 @@ categories:
   - application-development
   - communications
 organisation:
-  uri: urn:x-italian-pa:pcm
+  uri: urn:x-italian-pa:5n2tr557
 fundedBy:
   - name: Presidenza del Consiglio dei Ministri - Dipartimento per la Trasformazione
       Digitale
-    uri: https://innovazione.gov.it/
+    uri: urn:x-italian-pa:pcm
 developmentStatus: stable
 softwareType: standalone/web
 description:
